@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 使用映射器 -->
+<mapper namespace="cn.amy.apply.dao.HouseStatusDao">
+
+	<select id="findObjects" resultType="cn.amy.apply.entity.HouseStatus" parameterType="int">
+		select * from house_status where house_infos_id=#{id}
+	</select>	
+	
+	
+</mapper>

@@ -1,0 +1,89 @@
+#search .s1{
+	background: #e7e7e7;
+	width:95%;
+	height:120px;
+	margin-left:10px;
+}
+	
+#search span{
+	font-size:40px;
+	font-weight:bold;
+	margin-left:20px;
+	margin-top:120px;
+	height:120px;
+	line-height:120px;   /*文字高度(height)等于行高(line-height)时会垂直居中 */
+}
+
+#search img{
+	weight:80px;
+	height:80px;
+	margin-left:10px;
+	margin-top:20px;
+	float: left;
+}
+
+/*热门活动*/
+#activity img{
+	margin-left:10px;
+	width:95%;
+	height:500px;
+}
+
+/*热搜城市*/
+#citys{
+	/* border:1px solid red; */
+}
+#citys .city_jpg1{
+	width:250px;
+	height:400px;
+	margin-left:20px;
+}
+
+/*标题*/
+.title{
+	font-size:40px;
+	font-weight:bold;
+	margin-left:10px;
+}
+
+
+/*发现最美的家*/
+#amy_houses{
+	/* border:1px solid blue; */
+}
+#amy_houses img{
+	margin-left:10px;
+	width:95%;
+	height:500px;
+}
+#amy_houses .presentation{
+	font-size:30px;
+	font-weight:bold;
+	margin-left:10px;
+}
+#amy_houses .account{
+	font-size:26px;
+}
+#amy_houses .city,.account{
+	/* border:1px solid blue; */
+	float:left;
+	margin-left:10px;
+}
+/* 城市 */
+#amy_houses .city{
+	font-size:42px;
+	width:92px;
+	height:60px;
+	background-color:#c01948;
+	color:white;
+}
+#amy_houses .account{
+	margin-top:13px;
+	font-size:32px;
+	line-height:30px;
+	color:#bbbbbb
+}
+/*消除浮动影响*/
+#amy_houses .account2{
+	clear:left;
+}

@@ -1,0 +1,119 @@
+
+.content img{
+	width:100%;
+	height:500px;
+}
+.title{
+	font-size:50px;
+	font-weight:bold;
+}
+.head-img img{
+	height:120px;
+}
+/* 上面的div浮动后，下面的div就会上去 ，与上面的并齐 */
+.head-img{
+	width:120px;
+	height:120px;
+	float:left;
+	margin-top:13px;
+	margin-right:30px;
+}
+
+.readme{
+	width:90%;
+	height:160px;
+	font-size:30px;
+	margin:0px 80px;
+}
+.name{
+	color:red;
+	font-weight:bold;
+	font-size:36px;
+}
+.expert{
+	font-size:36px;
+	font-weight:bold;
+}
+
+/*独立房间*/
+.room{
+	/* border:1px solid blue; */
+}
+
+.configuration1,.configuration2,.configuration3,.configuration4{
+	/* border:1px solid red; */
+	width:120px;
+	float:left;
+}
+
+.configuration2,.configuration3,.configuration4{
+	margin-left:26px;
+}
+
+.configuration5{
+	clear:left;
+}
+.room-img{
+	width:120px;
+	height:120px;
+	/* border:1px solid blue; */
+}
+.configuration1 span,.configuration2 span,.configuration3 span,.configuration4 span{
+	font-size:28px;
+	/* border:1px solid red; */
+}
+.count{
+	width:120px;
+	/* border:1px solid blue; */
+	text-align:center;   /* .count 的div中的文本 居中   不是用于span元素 */
+}
+
+/*房源介绍*/
+.p1{
+	font-size:32px;
+	font-weight:bold;
+}
+
+.p2{
+	font-size:30px;
+}
+
+
+
+/*入住须知*/
+.regulations{
+	height:100px;
+}
+.options{
+	height:20px;
+	float:left;
+	margin-top:30px;
+}
+.regulations img{
+	width:100px;
+	height:100px;
+	float:right;
+}
+.regulations2{
+	clear:left;
+}
+.notes{
+    /* border:1px solid red; */
+}
+
+/*联系房东预订*/
+.booking{
+	width:100%;
+	height:100px;
+	border:1px solid blue;
+	background-color:red;
+	text-align:center;
+	color:white;
+	font-size:30px;
+	font-weight:bold; 
+	position:fixed;
+	bottom:0px;
+	left:0px;
+}
+
+

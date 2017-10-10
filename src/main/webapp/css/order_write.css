@@ -1,0 +1,13 @@
+/*定金支付*/
+.apply_book{
+	height:130px;
+	background-color:red;
+}
+.apply_book p{
+	color:white;
+	text-align:center;
+	font-size:40px;
+	font-weight:bold;
+	height:130px;
+	line-height:130px; 
+}
