@@ -19,5 +19,5 @@ public interface ProductService {
 	 * 查询首页显示的地址图片信息
 	 * @return
 	 */
-	HouseAddress queryHouseAddressAll();
+	HotCity queryHotCityAll();
 }
