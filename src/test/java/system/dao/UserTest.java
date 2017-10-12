@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.amy.system.dao.UserDao;
-import cn.amy.system.entity.User;
+import cn.amy.user.dao.UserDao;
+import cn.amy.user.entity.User;
 
 public class UserTest {
 	ClassPathXmlApplicationContext ac;

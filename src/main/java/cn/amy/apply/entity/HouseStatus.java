@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import cn.amy.common.web.DateJsonTypeConvert;
+import cn.amy.product.web.DateJsonTypeConvert;
 //房源状态实体类
 public class HouseStatus implements Serializable{
 	private static final long serialVersionUID = -9123661874974887995L;
