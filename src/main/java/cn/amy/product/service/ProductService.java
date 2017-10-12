@@ -20,4 +20,10 @@ public interface ProductService {
 	 * @return
 	 */
 	HotCity queryHotCityAll();
+	
+	/**
+	 * 查询热门活动
+	 * @return
+	 */
+	HotActivity queryHotActivity();
 }
