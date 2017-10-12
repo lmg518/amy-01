@@ -5,7 +5,7 @@
 <generatorConfiguration>
     <!-- classPathEntry:数据库的JDBC驱动的jar包地址 -->
     <classPathEntry
-        location="D:\work2\auto_po_sql_dao\mysql-connector-java-5.1.30.jar" />
+        location="D:\LENOVODocument\repairlang\auto\mysql-connector-java-5.1.30.jar" />
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <commentGenerator>
             <!-- 抑制警告 -->
@@ -18,8 +18,8 @@
 
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="jdbc:mysql://192.168.1.166:3306/mls2.0_test" userId="root"
-            password="transino;20170501">
+            connectionURL="jdbc:mysql://119.29.25.59:3306/amy_jpminsu01" userId="root"
+            password="hgs123lmg">
         </jdbcConnection>
 
 		<!-- 可以配置的属性为forceBigDecimals，该属性可以控制是否强制DECIMAL和NUMERIC
@@ -29,18 +29,18 @@
 			<property name="forceBigDecimals" value="true" />
 		</javaTypeResolver>
 		
-        <javaModelGenerator targetPackage="net.transino.mls.loanapp.domain" targetProject="mls-loanapp\src\main\java\">
+        <javaModelGenerator targetPackage="cn.amy.product.entity" targetProject="amy-jpminsu-01\src\main\java\">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mls.loanapp.mybatis.mapper"
-            targetProject="mls-loanapp\src\main\resources">
+        <sqlMapGenerator targetPackage="amy.product.mybatis.mapper"
+            targetProject="amy-jpminsu-01\src\main\resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="net.transino.mls.loanapp.dao.mapper" 
-        	targetProject="mls-loanapp\src\main\java\">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.amy.product.dao.mapper" 
+        	targetProject="amy-jpminsu-01\src\main\java\">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
@@ -51,8 +51,8 @@
             enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
             enableSelectByExample="false" selectByExampleQueryId="false"/> -->
         <!--生成对应表及类名 -->
-        <table tableName="loan_app" 
-		domainObjectName="LoanApp" 
+        <table tableName="household_appliances" 
+		domainObjectName="HouseholdAppliances" 
 		enableCountByExample="false" enableUpdateByExample="false"
 		enableDeleteByExample="false" enableSelectByExample="false" 
 		selectByExampleQueryId="false">
