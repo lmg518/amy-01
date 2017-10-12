@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.amy.product.dao.HouseAddressDao">
+	<select id="queryHouseAddressAll" parameterType="cn.amy.product.entity.HouseAddress" 
+		resultMap="cn.amy.product.dao.mapper.HouseAddressMapper.BaseResultMap">
+  		SELECT 
+  			<include refid="cn.amy.product.dao.mapper.HouseAddressMapper.Base_Column_List" />
+  		FROM
+  			house_address
+	</select>
+</mapper>

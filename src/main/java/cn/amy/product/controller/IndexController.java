@@ -65,5 +65,4 @@ public class IndexController {
 		json.put("houseInfos", houseInfos);
 		return json.toJSONString();
 	}
-
 }

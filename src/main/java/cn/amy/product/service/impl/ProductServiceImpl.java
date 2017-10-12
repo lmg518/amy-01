@@ -8,7 +8,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import cn.amy.product.dao.HouseAddressDao;
 import cn.amy.product.dao.HouseInfoDao;
+import cn.amy.product.entity.HouseAddress;
 import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.service.ProductService;
 
@@ -17,6 +19,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Resource
 	private HouseInfoDao houseInfoDao;
+	
+	@Resource
+	private HouseAddressDao houseAddressDao;
 	
 	@Override
 	public HouseInfo queryHouseInfo(String province, String createTime, Integer predictSum) throws ParseException {
@@ -30,6 +35,11 @@ public class ProductServiceImpl implements ProductService {
 		houseInfo.setCreateTime(date);
 		houseInfo.setPredictSum(predictSum);
 		return houseInfoDao.selectHouseInfoByProvinceAndTimeAndPredictSum(houseInfo);
+	}
+
+	@Override
+	public HouseAddress queryHouseAddressAll() {
+		return houseAddressDao.queryHouseAddressAll();
 	}
 
 }
