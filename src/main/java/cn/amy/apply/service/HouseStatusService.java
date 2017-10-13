@@ -6,6 +6,6 @@ import cn.amy.apply.entity.HouseStatus;
 
 public interface HouseStatusService {
 	//查询所有的房源信息
-	List<HouseStatus> findObjects(int id);
+	List<HouseStatus> findObjects(String id);
 
 }

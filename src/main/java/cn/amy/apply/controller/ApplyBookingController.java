@@ -2,6 +2,7 @@ package cn.amy.apply.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,29 +60,37 @@ public class ApplyBookingController {
 	@RequestMapping("findHouseById.do")
 	//@ResponseBody    //返回json
 	public void findHouseById(HttpServletRequest request,HttpServletResponse response){
-		List<HouseStatus> list=houseStatusServiceImpl.findObjects(1);
-		//Map<Double,Integer> map=new HashMap<Double,Integer>();
-		
+		List<HouseStatus> list=houseStatusServiceImpl.findObjects("1");
+		System.out.println("-----1---->"+list);
 		//封装酒店预订价格日历
-		Map<String,String> m1=new HashMap<String,String>();
-		m1.put("price", "298");
-		m1.put("roomNum", "5");
-		System.out.println(m1);
-		
-		
+//		m1.put("price", "298");
+//		m1.put("roomNum", "5");
+//		System.out.println(m1);
 		try {  
 	        response.setContentType("text/plain");  
 	        response.setHeader("Pragma", "No-cache");  
 	        response.setHeader("Cache-Control", "no-cache");  
 	        response.setDateHeader("Expires", 0);  
-	        Map<String,Object> map = new HashMap<String,Object>();   
-	        map.put("2017-10-01", m1);
-	        map.put("2017-10-02", m1);
-	        map.put("2017-10-03", m1);
-	        map.put("2017-10-04", m1);
-	        map.put("2017-10-05", m1);
-	        map.put("2017-10-06", m1);
-	        map.put("2017-10-07", m1);
+	        Map<String,Object> map = new HashMap<String,Object>(); 
+	        
+	        //转换格式
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			
+	        for(HouseStatus hs:list){
+	        	Map<String,String> m1=new HashMap<String,String>();
+	        	m1.put("price", hs.getPrice().toString());
+	        	m1.put("roomNum", hs.getRow_num().toString());
+	        	map.put(sdf.format(hs.getDate_time()), m1);
+	        }
+	        System.out.println("----2------"+map);
+	        
+//	        map.put("2017-10-01", m1);
+//	        map.put("2017-10-02", m1);
+//	        map.put("2017-10-03", m1);
+//	        map.put("2017-10-04", m1);
+//	        map.put("2017-10-05", m1);
+//	        map.put("2017-10-06", m1);
+//	        map.put("2017-10-07", m1);
 	        
 	        PrintWriter out = response.getWriter();       
 	        JSONObject resultJSON = JSONObject.fromObject(map); //根据需要拼装json  
