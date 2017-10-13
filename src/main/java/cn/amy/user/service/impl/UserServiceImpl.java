@@ -8,7 +8,7 @@ import cn.amy.user.dao.UserDao;
 import cn.amy.user.entity.User;
 import cn.amy.user.service.UserService;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 	
 	@Resource
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void saveUser(User user) {
-		userDao.save(user);
+		userDao.insertSelective(user);
 	}
 
 }

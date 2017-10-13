@@ -30,7 +30,7 @@ public class UserController {
 			return null;
 		}else {
 			User u=new User();
-			u.setName(name);
+			u.setUserName(name);
 			u.setPassword(password);
 			u.setPhone(phone);
 			userServiceImpl.saveUser(u);

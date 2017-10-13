@@ -51,8 +51,8 @@
             enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
             enableSelectByExample="false" selectByExampleQueryId="false"/> -->
         <!--生成对应表及类名 -->
-        <table tableName="CUST_PERSON" 
-		domainObjectName="CustPerson" 
+        <table tableName="user" 
+		domainObjectName="User" 
 		enableCountByExample="false" enableUpdateByExample="false"
 		enableDeleteByExample="false" enableSelectByExample="false" 
 		selectByExampleQueryId="false">
