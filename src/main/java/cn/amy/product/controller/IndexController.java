@@ -1,6 +1,7 @@
 package cn.amy.product.controller;
 
 import java.text.ParseException;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 
+import cn.amy.product.entity.HotActivity;
+import cn.amy.product.entity.HotCity;
 import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.service.ProductService;
 
@@ -60,8 +63,15 @@ public class IndexController {
 	@RequestMapping("loadHouseInfo")
 	public String loadHouseInfo(HttpSession httpSession,String province,String createTime,Integer predictSum) throws ParseException{
 		JSONObject json = new JSONObject();
+		//获取房源信息
+		List<HouseInfo> houseInfos = productService.queryHouseInfo(province, createTime, predictSum);
+		//获取热门城市信息
+		List<HotCity> hotCitys = productService.queryHotCityAll();
+		//获取热门活动信息
+		List<HotActivity> hotActivitys = productService.queryHotActivity();
+		json.put("hotCitys", hotCitys);
+		json.put("hotActivitys", hotActivitys);
 		json.put("success", true);
-		HouseInfo houseInfos = productService.queryHouseInfo(province, createTime, predictSum);
 		json.put("houseInfos", houseInfos);
 		return json.toJSONString();
 	}

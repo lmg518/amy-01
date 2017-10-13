@@ -3,6 +3,7 @@ package cn.amy.product.service.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -29,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
 	private HotActivityDao hotActivityDao;
 	
 	@Override
-	public HouseInfo queryHouseInfo(String province, String createTime, Integer predictSum) throws ParseException {
+	public List<HouseInfo> queryHouseInfo(String province, String createTime, Integer predictSum) throws ParseException {
 		Date date = null;
 		if(createTime != null && !"".equals(createTime)){
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -43,12 +44,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public HotCity queryHotCityAll() {
+	public List<HotCity> queryHotCityAll() {
 		return hotCityDao.queryHotCityAll();
 	}
 
 	@Override
-	public HotActivity queryHotActivity() {
+	public List<HotActivity> queryHotActivity() {
 		return hotActivityDao.queryHotActivityAll();
 	}
 

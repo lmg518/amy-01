@@ -1,8 +1,11 @@
 package cn.amy.product.service;
 
 import java.text.ParseException;
+import java.util.List;
 
-import cn.amy.product.entity.*;
+import cn.amy.product.entity.HotActivity;
+import cn.amy.product.entity.HotCity;
+import cn.amy.product.entity.HouseInfo;
 
 public interface ProductService {
 
@@ -13,17 +16,17 @@ public interface ProductService {
 	 * @param predictSum
 	 * @return
 	 */
-	public HouseInfo queryHouseInfo(String province,String createTime,Integer predictSum) throws ParseException;
+	public List<HouseInfo> queryHouseInfo(String province,String createTime,Integer predictSum) throws ParseException;
 	
 	/**
 	 * 查询首页显示的地址图片信息
 	 * @return
 	 */
-	HotCity queryHotCityAll();
+	List<HotCity> queryHotCityAll();
 	
 	/**
 	 * 查询热门活动
 	 * @return
 	 */
-	HotActivity queryHotActivity();
+	List<HotActivity> queryHotActivity();
 }
