@@ -34,7 +34,8 @@
 		<!-- 自动扫描mapping.xml映射文件 -->
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:mapper/*.xml</value>
+				<value>classpath:amy/**/mybatis/mapper/*.xml</value>
+				<value>classpath:amy/**/mybatis/*.xml</value>
 			</list>
 		</property>
 	
