@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,10 +25,10 @@ public class IndexController {
 	@Resource	
 	private ProductService productService;
 	
-	@RequestMapping("indexUI")
+	/*@RequestMapping("indexUI")
 	public String indexUI(){
 		return "index";
-	}
+	}*/
 	//首页搜索条件页面
 	@RequestMapping("city.do")
 	public String city(){
@@ -59,20 +60,23 @@ public class IndexController {
 	 * @return
 	 * @throws ParseException 
 	 */
-	@ResponseBody
-	@RequestMapping("loadHouseInfo")
-	public String loadHouseInfo(HttpSession httpSession,String province,String createTime,Integer predictSum) throws ParseException{
-		JSONObject json = new JSONObject();
+	//@ResponseBody
+	@RequestMapping(value="indexUI",produces="text/html;charset=utf-8")
+	public String loadHouseInfo(HttpSession httpSession,Model model,String province,String createTime,Integer predictSum) throws ParseException{
+		//JSONObject json = new JSONObject();
 		//获取房源信息
 		List<HouseInfo> houseInfos = productService.queryHouseInfo(province, createTime, predictSum);
 		//获取热门城市信息
 		List<HotCity> hotCitys = productService.queryHotCityAll();
 		//获取热门活动信息
 		List<HotActivity> hotActivitys = productService.queryHotActivity();
-		json.put("hotCitys", hotCitys);
-		json.put("hotActivitys", hotActivitys);
-		json.put("success", true);
-		json.put("houseInfos", houseInfos);
-		return json.toJSONString();
+		model.addAttribute("hotCitys", hotCitys);
+		model.addAttribute("hotActivitys", hotActivitys);
+		model.addAttribute("houseInfos", houseInfos);
+		//json.put("hotCitys", hotCitys);
+		//json.put("hotActivitys", hotActivitys);
+		//json.put("success", true);
+		//json.put("houseInfos", houseInfos);
+		return "index";
 	}
 }

@@ -68,7 +68,7 @@ function loadHouseInfo(){
 			//predictSum:predictSum
 	};
 	$.ajax({
-		url : contextPath + '/loadHouseInfo.do',
+		url : contextPath + '/indexUI.do',
 		type : "GET",
 		data : data,
 		dataType : 'json',
