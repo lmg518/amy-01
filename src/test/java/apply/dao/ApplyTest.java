@@ -25,7 +25,7 @@ public class ApplyTest {
 		HouseStatusDao dao=ac.getBean("houseStatusDao",HouseStatusDao.class);
 		System.out.println("============>"+dao);
 		
-		List<HouseStatus> list=dao.findObjects(1001);
+		List<HouseStatus> list=dao.findObjects("1");
 		System.out.println(list);
 	}
 

@@ -9,6 +9,6 @@ public interface HouseStatusDao {
 	
 	
 	//查询所有的房源状态信息   按照房源id 查询
-	List<HouseStatus> findObjects(int id);
+	List<HouseStatus> findObjects(String house_info_id);
 
 }

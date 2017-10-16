@@ -6,8 +6,8 @@
 <!-- 使用映射器 -->
 <mapper namespace="cn.amy.apply.dao.HouseStatusDao">
 
-	<select id="findObjects" resultType="cn.amy.apply.entity.HouseStatus" parameterType="int">
-		select * from house_status where house_infos_id=#{id}
+	<select id="findObjects" resultType="cn.amy.apply.entity.HouseStatus" parameterType="java.lang.String">
+		select * from house_status where house_info_id=#{house_info_id}
 	</select>	
 	
 	

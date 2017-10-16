@@ -17,7 +17,7 @@ public class HouseStatusServiceImpl implements HouseStatusService {
 	private HouseStatusDao houseStatusDao;
 	
 	@Override
-	public List<HouseStatus> findObjects(int id) {
+	public List<HouseStatus> findObjects(String id) {
 		
 		return houseStatusDao.findObjects(id);
 	}

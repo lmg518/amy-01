@@ -74,8 +74,12 @@
 	
 	
 	<!-- 配置mvc注解扫描,注解驱动  让@RequestMapping 注解起作用 -->
-	<mvc:annotation-driven/>
-	
+	<!-- <mvc:annotation-driven/> -->
+	<!-- spring mvc 注解及类型转换 -->
+    <mvc:annotation-driven conversion-service="conversionService" />
+    <bean id="conversionService"
+        class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+    </bean>
 	
 	
 	

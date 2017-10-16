@@ -26,7 +26,7 @@ public class UserTest {
 		System.out.println("============>"+dao);
 		
 		User u=new User();
-		u.setName("李明贵");
+		//u.setName("李明贵");
 		u.setPhone("13663963981");
 		u.setPassword("123");
 		System.out.println(u);
