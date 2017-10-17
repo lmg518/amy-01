@@ -76,7 +76,7 @@
 	<div id="citys">
 		<span class="title">热搜城市</span><br><br>
 		<c:forEach items="${hotCitys }" var="hc">
-			<dd>${hc.provinceName }</dd>
+			<%-- <dd>${hc.provinceName }</dd> --%>
 			<img class="city_jpg1" src="${hc.addressImageUrl}" />
 		</c:forEach>
 		<!-- <img class="city_jpg1" src="images/citys/city01.jpg" />
