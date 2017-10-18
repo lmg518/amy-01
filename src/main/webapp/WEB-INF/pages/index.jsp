@@ -88,7 +88,7 @@
 	<div id="amy_houses"><br>
 		<p class="title">发现最美的家</p>
 		<c:forEach items="${houseInfos }" var="houseInfo">
-			<div><img onclick="location='show1.do'" src="${houseInfo.imgUrl }" /></div><br>
+			<div class="img_url"><input value="${houseInfo.houseInfoId }" /><img src="${houseInfo.imgUrl }" /></div><br>
 			<p class="presentation">${houseInfo.title }</p>
 			<div class="content">
 				<div class="city"><span>${houseInfo.province }</span></div>

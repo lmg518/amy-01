@@ -18,6 +18,8 @@ public interface ProductService {
 	 */
 	public List<HouseInfo> queryHouseInfo(String province,String createTime,Integer predictSum) throws ParseException;
 	
+	HouseInfo showHouseInfo(String house_info_id); //根据房源id查询
+	
 	/**
 	 * 查询首页显示的地址图片信息
 	 * @return

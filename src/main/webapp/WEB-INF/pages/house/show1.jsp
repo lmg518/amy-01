@@ -10,6 +10,8 @@
 
 </head>
 <body>
+简介：${houseinfo.title }
+房东：${custPerson.name } 
 	<!-- 图片，标题 -->
 	<div class="content">
 		<img src="images/houses/house01.jpg" />

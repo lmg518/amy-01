@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.amy.user.dao.CustPersonDao">
+	<!-- 根据landlord_id查询房东信息 -->
+	<select id="findlandlordById" parameterType="java.lang.String" 
+		resultType="cn.amy.user.entity.CustPerson">
+  		SELECT 
+  			<!-- <include refid="cn.amy.product.dao.mapper.CustPersonMapper.Base_Column_List" /> -->
+  			*
+  		FROM
+  			CUST_PERSON
+  		WHERE landlord_id =#{landlord_id}
+	</select>
+	
+</mapper>

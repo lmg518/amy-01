@@ -9,14 +9,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.alibaba.fastjson.JSONObject;
 
 import cn.amy.product.entity.HotActivity;
 import cn.amy.product.entity.HotCity;
 import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.service.ProductService;
+import cn.amy.user.entity.CustPerson;
+import cn.amy.user.service.UserService;
 
 //首页
 @Controller
@@ -24,6 +23,8 @@ public class IndexController {
 	
 	@Resource	
 	private ProductService productService;
+	@Resource
+	private UserService userService;
 	
 	/*@RequestMapping("indexUI")
 	public String indexUI(){
@@ -44,9 +45,16 @@ public class IndexController {
 	}
 	
 	
-	//房源1
-	@RequestMapping("show1")
-	public String show1(){
+	//show详情json  没使用json 使用el 表达式在页面赋值
+	@RequestMapping("showHouseInfo")
+	public String showHouseInfo(Model model,String house_info_id){
+		System.out.println("-----id------>"+house_info_id);
+	    HouseInfo houseinfo = productService.showHouseInfo(house_info_id);
+	    CustPerson custPerson = userService.findlandlordById("1");
+	    
+	    System.out.println(houseinfo.getTitle());
+	    model.addAttribute("houseinfo", houseinfo);   //房源信息
+	    model.addAttribute("custPerson", custPerson); //房东信息
 		return "house/show1";
 	}
 	

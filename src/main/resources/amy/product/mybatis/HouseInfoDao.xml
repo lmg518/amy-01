@@ -18,4 +18,15 @@
         	AND	createTime = #{createTime,jdbcType=TIMESTAMP}
       	</if>
 	</select>
+	
+	<!-- 根据house_info_id查询 -->
+	<select id="showHouseInfo" parameterType="java.lang.String" 
+		resultMap="cn.amy.product.dao.mapper.HouseInfoMapper.BaseResultMap">
+  		SELECT 
+  			<include refid="cn.amy.product.dao.mapper.HouseInfoMapper.Base_Column_List" />
+  		FROM
+  			house_info
+  		WHERE house_info_id =#{house_info_id}
+	</select>
+	
 </mapper>

@@ -53,4 +53,9 @@ public class ProductServiceImpl implements ProductService {
 		return hotActivityDao.queryHotActivityAll();
 	}
 
+	@Override
+	public HouseInfo showHouseInfo(String house_info_id) {
+		return houseInfoDao.showHouseInfo(house_info_id);
+	}
+
 }
