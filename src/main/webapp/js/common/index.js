@@ -63,7 +63,7 @@ function loadHouseInfo(){
 	var createTime = $("#createTime").val();//时间
 	var predictSum = $("#predictSum").val();//数量
 	var data = {
-			//province:province,
+			province:province,
 			//createTime:createTime,
 			//predictSum:predictSum
 	};
