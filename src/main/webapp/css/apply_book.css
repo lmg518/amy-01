@@ -84,6 +84,12 @@ body{
 	height:80px;
 	font-size:40px;
 }
+/*入住人信息*/
+.userInfo input{
+	border:0;
+}
+
+
 /*申请预订*/
 .apply_book{
 	height:130px;

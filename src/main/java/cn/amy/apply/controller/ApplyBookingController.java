@@ -32,10 +32,13 @@ public class ApplyBookingController {
 		return "apply/apply_book";
 	}
 	
-	//订单填写页面
-	@RequestMapping("order_write.do")
+	//订单详情页面   点击申请预订之后
+	@RequestMapping("order.do")
 	public String order_write(){
-		return "apply/order_write";
+		//生成订单号，显示订单的信息
+		
+		
+		return "apply/order";
 	}
 	
 	//定金支付页面
@@ -44,6 +47,7 @@ public class ApplyBookingController {
 		return "apply/pay_money";
 	}
 	
+	//点击申请预订 
 	@RequestMapping("apply_booking.do")
 	@ResponseBody
 	public String apply_booking(String stay_num,String begin_date,String end_date){

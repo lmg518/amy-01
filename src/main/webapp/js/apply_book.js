@@ -16,10 +16,16 @@ function getParams(){
 	var rdoValue = $('.staty_num .btn-corner').find(':radio:checked').val(); //获取入住人数
 	var begin_date=$('.go_time .J_Count').html();
 	var end_date=$('.leave_time .J_Count').html();
+	//获取用户信息
+	var userName=$('.userInfo .userName').val();
+	var IDNum=$('.userInfo .IDNum').val();
+	
 	var params={
 			'stay_num':rdoValue,
 			'begin_date':begin_date,
 			'end_date':end_date,
+			'userName':userName,
+			'IDNum':IDNum
 	}
 	console.log(params);
 	return params;
@@ -31,7 +37,7 @@ function apply_booking(){
 	var params=getParams();
 	$.post(url,params,function(result){
 		console.log(result)
-		document.location.href="order_write.do";
+		document.location.href="order.do";
 	});
 	
 }

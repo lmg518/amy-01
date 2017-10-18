@@ -80,13 +80,7 @@ body{padding:0;margin:0 10px;}
 			<button class="J_Limit" data-limit="7" style="height:80px;font-size:30px;">限定范围（今天->90天）</button>
 			<button class="J_Limit" data-limit="7" data-date="2017-10-1" style="height:80px;font-size:30px;">指定日历时间（2012年10月1号->60天）</button>
         </div>
-		
-		
 	</div>
-	
-	
-	
-	
 	
 	
 	
@@ -106,6 +100,16 @@ body{padding:0;margin:0 10px;}
 	<div class="travel_plan">
 		<input type="text" placeholder="简单介绍一下自己和您的旅行" />
 	</div>
+	
+	
+	<hr>
+	<div class="userInfo">
+		<font color="red">*</font>入住人：<input class="userName" type="text" placeholder="真实姓名" /><br>
+		<font color="red">*</font>身份证号：<input class="IDNum" type="text" placeholder="请填写真实证件号" />
+	</div>
+	<hr>
+	
+	
 	
 	<!-- 申请预订 -->
 	<div class="apply_book">
