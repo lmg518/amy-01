@@ -42,7 +42,7 @@
 <body>
 	<!-- 搜索模块 -->
 	<div id="search">
-		<div class="search s1" onclick="location='city.do'">
+		<div class="search s1 address_select_box">
 			<img src="./images/common/location.png" /><span>任何房源</span>
 		</div><br>
 		<div class="search s1" onclick="location='choose_date.do'">
