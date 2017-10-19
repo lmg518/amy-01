@@ -12,24 +12,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.amy.apply.entity.HouseStatus;
 import cn.amy.apply.service.impl.HouseStatusServiceImpl;
+import cn.amy.product.entity.HouseInfo;
+import cn.amy.product.service.ProductService;
 import net.sf.json.JSONObject;
 
-//申请预订
+//申请预订页面
 @Controller
 public class ApplyBookingController {
 	
 	@Resource
 	private HouseStatusServiceImpl houseStatusServiceImpl;
+	@Resource	
+	private ProductService productService;
+	
+	
+	
 	
 	//跳转页面的路由  预订首页
 	@RequestMapping("apply_book.do")
-	public String apply_book(){
-		return "apply/apply_book";
+	public String apply_book(Model model,String house_info_id){
+		System.out.println("-----id2------>"+house_info_id);
+		 HouseInfo houseinfo = productService.showHouseInfo(house_info_id);
+		 model.addAttribute("houseinfo", houseinfo);   //房源信息
+		 return "apply/apply_book";
 	}
 	
 	//订单详情页面   点击申请预订之后
@@ -65,11 +76,8 @@ public class ApplyBookingController {
 	//@ResponseBody    //返回json
 	public void findHouseById(HttpServletRequest request,HttpServletResponse response){
 		List<HouseStatus> list=houseStatusServiceImpl.findObjects("1");
-		System.out.println("-----1---->"+list);
+		//System.out.println("-----1---->"+list);
 		//封装酒店预订价格日历
-//		m1.put("price", "298");
-//		m1.put("roomNum", "5");
-//		System.out.println(m1);
 		try {  
 	        response.setContentType("text/plain");  
 	        response.setHeader("Pragma", "No-cache");  
@@ -86,16 +94,7 @@ public class ApplyBookingController {
 	        	m1.put("roomNum", hs.getRow_num().toString());
 	        	map.put(sdf.format(hs.getDate_time()), m1);
 	        }
-	        System.out.println("----2------"+map);
-	        
-//	        map.put("2017-10-01", m1);
-//	        map.put("2017-10-02", m1);
-//	        map.put("2017-10-03", m1);
-//	        map.put("2017-10-04", m1);
-//	        map.put("2017-10-05", m1);
-//	        map.put("2017-10-06", m1);
-//	        map.put("2017-10-07", m1);
-	        
+	        //System.out.println("----2------"+map);
 	        PrintWriter out = response.getWriter();       
 	        JSONObject resultJSON = JSONObject.fromObject(map); //根据需要拼装json  
 	        String callback = request.getParameter("callback");//客户端请求参数  

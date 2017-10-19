@@ -46,12 +46,14 @@ body{padding:0;margin:0 10px;}
 
 </head>
 <body>
+<%-- 02：${houseinfo.imgUrl }  --%>
+
 	<!-- 房源简介 -->
 	<div class="introduction">
-	    <img src="images/houses/house01.jpg" />
+	    <img src="${houseinfo.imgUrl }" />
 		 <div class="span1">
-		     <span>Lovelife布艺设计师的家room...艺设计师的家</span><br>
-		 	 <p>3间卧室.1个卫生间.2张床</p>
+		     <span>${houseinfo.houseType }</span><br>
+		 	 <p>${houseinfo.bedroomSum }间卧室.${houseinfo.toiletSum }个卫生间.${houseinfo.bedSum }张床</p>
 		 </div>
 	</div>
 	
@@ -88,24 +90,22 @@ body{padding:0;margin:0 10px;}
 	 <p id="title1">入住人数</p>
 	<div class="staty_num">
 		<label class="btn-corner">
-			<input type="radio" name="value" value="1">1
-		    <input type="radio" name="value" value="2">2
-		    <input type="radio" name="value" value="3">3
-		    <input type="radio" name="value" value="4">4
+			<input type="radio" name="value" value="1"><span>1</span>
+		    <input type="radio" name="value" value="2"><span>2</span>
+		    <input type="radio" name="value" value="3"><span>3</span>
+		    <input type="radio" name="value" value="4"><span>4</span>
 		</label>
 	</div>
 	
 	<!-- 旅行计划 -->
-	 <p id="title2">旅行计划</p>
-	<div class="travel_plan">
+	 <p id="title2">入住人信息</p>
+	<!-- <div class="travel_plan">
 		<input type="text" placeholder="简单介绍一下自己和您的旅行" />
-	</div>
+	</div> -->
 	
-	
-	<hr>
 	<div class="userInfo">
-		<font color="red">*</font>入住人：<input class="userName" type="text" placeholder="真实姓名" /><br>
-		<font color="red">*</font>身份证号：<input class="IDNum" type="text" placeholder="请填写真实证件号" />
+		<font color="red">*</font><span>入住人：</span><input class="userName" type="text" placeholder="真实姓名" /><br>
+		<font color="red">*</font><span>身份证号：</span><input class="IDNum" type="text" placeholder="请填写真实证件号" />
 	</div>
 	<hr>
 	

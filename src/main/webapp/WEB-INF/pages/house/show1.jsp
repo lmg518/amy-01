@@ -6,16 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="./js/show1.js"></script>
 <link rel="stylesheet" href="./css/common/show.css" />
 
 </head>
 <body>
-简介：${houseinfo.title }
+<%-- 简介：${houseinfo.title }
 房东：${custPerson.name } 
 01：${custPerson.headUrl } 
-02：${houseinfo.imgUrl } 
+02：${houseinfo.imgUrl }  --%>
 	<!-- 图片，标题 -->
 	<div class="content">
+		<input value=${houseinfo.houseInfoId } />
 		<img src="${houseinfo.imgUrl }" />
 		<p class="title">${houseinfo.houseType }</p>
 		<br>
@@ -107,7 +110,7 @@
 	</div>
 
 	<!-- 联系房东预订 -->
-	<div class="booking" onclick="location='apply_book.do'">
+	<div class="booking">
 		<p>联系房东预订</p>
 	</div>
 	

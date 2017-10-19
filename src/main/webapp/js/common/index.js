@@ -28,7 +28,7 @@ var banner = new Swiper('.swiper-banner', {
 
 $(document).ready(function(){
 	//弹出注册页面  使用bootstrap
-	$('#queryFormId').on("click",".btn-add",showEditDialog);
+	//$('#queryFormId').on("click",".btn-add",showEditDialog);
 	loadHouseInfo();
 	
 	$(".img_url").click(showHouseInfo); //图片添加点击事件

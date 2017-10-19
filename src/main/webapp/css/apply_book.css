@@ -34,6 +34,7 @@ body{
 	font-weight:bold;
 }
 
+/*设置统一背景色*/
 .travel_time,.staty_num,.travel_plan{
 	margin-top:-10px;
 	margin-left:15px;
@@ -72,8 +73,18 @@ body{
 /*入住人数宽度*/
 .staty_num{
 	height:200px;
+	border:1px solid blue;
 }
+.btn-corner input,span{
+	height:50px;
+	width:50px;
+	font-size:40px;
+	margin-left:18px;
+	margin-top:60px;
+} 
 
+
+/*旅行计划*/
 .travel_plan{
 	height:180px;
 }
@@ -84,9 +95,25 @@ body{
 	height:80px;
 	font-size:40px;
 }
+
+
+
+
 /*入住人信息*/
+.userInfo{
+	height:300px;
+	border:1px solid blue;
+	background-color:white;
+}
+.userInfo span,font{
+	font-size:40px;
+}
 .userInfo input{
 	border:0;
+	margin-top:50px;
+	width:900px;
+	height:80px;
+	font-size:40px;
 }
 
 

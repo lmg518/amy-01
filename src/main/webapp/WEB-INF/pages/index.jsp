@@ -7,17 +7,17 @@
 <meta charset="UTF-8">
 <title>Amy精品民宿</title>
 
-<link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap.min.css" />
+<%-- <link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap-datepicker.min.css" />
 <link rel="stylesheet" href="${basePath}/static/css/font-awesome.min.css">
 <link rel="stylesheet" href="${basePath}/static/plugins/ztree/css/metroStyle/metroStyle.css">
 <link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap-table.min.css">
 <link rel="stylesheet" href="${basePath}/static/css/main.css">
-<link rel="stylesheet" href="${basePath}/static/plugins/treegrid/jquery.treegrid.css">
+<link rel="stylesheet" href="${basePath}/static/plugins/treegrid/jquery.treegrid.css"> --%>
 
 <script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
 
-<script src="${basePath}/bootstrap/js/bootstrap.min.js"></script>
+<%-- <script src="${basePath}/bootstrap/js/bootstrap.min.js"></script>
 <script src="${basePath}/bootstrap/js/bootstrap-datepicker.min.js"></script>
 <script src="${basePath}/bootstrap/js/bootstrap-table.min.js"></script>
 
@@ -26,7 +26,7 @@
 <script src="${basePath}/static/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
 <script src="${basePath}/static/plugins/treegrid/jquery.treegrid.extension.js"></script>
 <script src="${basePath}/static/plugins/treegrid/tree.table.js"></script>
-<script src="${basePath}/static/plugins/ztree/jquery.ztree.all.min.js"></script>
+<script src="${basePath}/static/plugins/ztree/jquery.ztree.all.min.js"></script> --%>
 
 
 <script type="text/javascript" src="./js/common/index.js"></script>
@@ -88,7 +88,7 @@
 	<div id="amy_houses"><br>
 		<p class="title">发现最美的家</p>
 		<c:forEach items="${houseInfos }" var="houseInfo">
-			<div class="img_url"><input value="${houseInfo.houseInfoId }" /><img src="${houseInfo.imgUrl }" /></div><br>
+			<div class="img_url"><input type="hidden" value="${houseInfo.houseInfoId }" /><img src="${houseInfo.imgUrl }" /></div><br>
 			<p class="presentation">${houseInfo.title }</p>
 			<div class="content">
 				<div class="city"><span>${houseInfo.province }</span></div>
