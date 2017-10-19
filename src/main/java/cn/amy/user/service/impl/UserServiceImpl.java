@@ -32,4 +32,11 @@ public class UserServiceImpl implements UserService {
 		return custPersonDao.findlandlordById(landlord_id);
 	}
 
+
+
+	@Override
+	public CustPerson selectByPrimaryKey(String landlord_id) {
+		return custPersonDao.selectByPrimaryKey(landlord_id);
+	}
+
 }

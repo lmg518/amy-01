@@ -12,16 +12,18 @@
 <body>
 简介：${houseinfo.title }
 房东：${custPerson.name } 
+01：${custPerson.headUrl } 
+02：${houseinfo.imgUrl } 
 	<!-- 图片，标题 -->
 	<div class="content">
-		<img src="images/houses/house01.jpg" />
-		<p class="title">北京四合院 天安门&故宫天安门东地铁站景山公园 后海</p>
+		<img src="${houseinfo.imgUrl }" />
+		<p class="title">${houseinfo.houseType }</p>
 		<br>
 		
-		<div class="head-img"><img src="images/show/head-img.jpg"></div>
+		<div class="head-img"><img src="${custPerson.headUrl }" /></div>
 		<div class="readme">
-			<span class="name">Helen</span>&nbsp&nbsp|&nbsp&nbsp<span class="expert">旅游达人</span><br><br>
-			<span>我喜欢交朋友，经常喜欢来一场说走就走的旅行，我喜欢自然，喜欢设计，喜欢...</span>
+			<span class="name">${custPerson.alias }</span>&nbsp&nbsp|&nbsp&nbsp<span class="expert">${custPerson.type }</span><br><br>
+			<span>${custPerson.introduce }</span>
 		</div>
 	</div>
 	
@@ -32,25 +34,25 @@
 		<!-- 配置1 -->
 		<div class="configuration1">
 			<img class="room-img" src="images/show/tenant.jpg">
-			<div class="count"><span>1位房客</span></div>
+			<div class="count"><span>${houseinfo.roomSum }</span><span>位房客</span></div>
 		</div>
 		
 		<!-- 配置2 -->
 		<div class="configuration2">
 			<img class="room-img" src="images/show/door.jpg">
-			<div class="count"><span>1间卧室</span></div>
+			<div class="count"><span>${houseinfo.bedroomSum }</span><span>间卧室</span></div>
 		</div>
 		
 		<!-- 配置3 -->
 		<div class="configuration3">
 			<img class="room-img" src="images/show/bed.jpg">
-			<div class="count"><span>1张床</span></div>
+			<div class="count"><span>${houseinfo.bedSum }</span><span>张床</span></div>
 		</div>
 		
 		<!-- 配置4 -->
 		<div class="configuration4">
 			<img class="room-img" src="images/show/bathtub.jpg">
-			<div class="count"><span>1卫</span></div>
+			<div class="count"><span>${houseinfo.toiletSum }</span><span>卫</span></div>
 		</div>
 		
 		<div class="configuration5">
@@ -61,7 +63,7 @@
 	<!-- 房源介绍 -->
 	<div class="house_introduced">
 		<p class="p1">房源介绍</p>
-		<p class="p2">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp大黄蜂建卡后的空间发哈监督和反差的烦恼就是快递放假啊了才能使大脑产生的</p>
+		<p class="p2">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${houseinfo.houseDescribe }</p>
 	</div><br>
 	
 	<hr>

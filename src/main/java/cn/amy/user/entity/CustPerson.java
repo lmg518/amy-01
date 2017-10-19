@@ -1223,4 +1223,24 @@ public class CustPerson {
     public void setWeechatNo(String weechatNo) {
         this.weechatNo = weechatNo == null ? null : weechatNo.trim();
     }
+
+	@Override
+	public String toString() {
+		return "CustPerson [landlordId=" + landlordId + ", userId=" + userId + ", name=" + name + ", alias=" + alias
+				+ ", englishName=" + englishName + ", mobilePhone=" + mobilePhone + ", idNo=" + idNo + ", idFromDate="
+				+ idFromDate + ", idThruDate=" + idThruDate + ", frontContentId=" + frontContentId + ", backContentId="
+				+ backContentId + ", identificationId=" + identificationId + ", province=" + province + ", city=" + city
+				+ ", district=" + district + ", address=" + address + ", educationEnum=" + educationEnum
+				+ ", degreeEnum=" + degreeEnum + ", introduce=" + introduce + ", type=" + type + ", headUrl=" + headUrl
+				+ ", marrageEnum=" + marrageEnum + ", occupationEnum=" + occupationEnum + ", titleEnum=" + titleEnum
+				+ ", ptitleEnum=" + ptitleEnum + ", workingUnit=" + workingUnit + ", industryEnum=" + industryEnum
+				+ ", email=" + email + ", accountNo=" + accountNo + ", accountMobilePhone=" + accountMobilePhone
+				+ ", createBy=" + createBy + ", createTime=" + createTime + ", lastModifiedBy=" + lastModifiedBy
+				+ ", lastModifiedTime=" + lastModifiedTime + ", lastModifiedSeq=" + lastModifiedSeq + ", qqNo=" + qqNo
+				+ ", weechatNo=" + weechatNo + "]";
+	}
+    
+    
+    
+    
 }

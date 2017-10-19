@@ -25,9 +25,9 @@ public class CustPersonDaoTest {
 		CustPersonDao dao=ac.getBean("custPersonDao",CustPersonDao.class);
 		System.out.println("============>"+dao);
 		
-		CustPerson list=dao.selectByPrimaryKey("1");  //自动生成的方法  报错
-		//CustPerson list=dao.findlandlordById("1");
-		System.out.println("------list----->"+list.getName());
+		//CustPerson list=dao.selectByPrimaryKey("1");  //自动生成的方法  ok 
+		CustPerson list=dao.findlandlordById("1");   //数据库中的字段映射不出来
+		System.out.println("------list----->"+list);
 	}
 
 }

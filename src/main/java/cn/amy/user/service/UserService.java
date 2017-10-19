@@ -9,5 +9,6 @@ public interface UserService {
 	void saveUser(User user);
 	//查询房东
     CustPerson findlandlordById(String landlord_id);
+    CustPerson selectByPrimaryKey(String landlord_id);
 
 }

@@ -50,11 +50,17 @@ public class IndexController {
 	public String showHouseInfo(Model model,String house_info_id){
 		System.out.println("-----id------>"+house_info_id);
 	    HouseInfo houseinfo = productService.showHouseInfo(house_info_id);
-	    CustPerson custPerson = userService.findlandlordById("1");
+	    //获取房源对应的房东  landlord_id
+	    String landlord_id=houseinfo.getLandlordId();
+	    //找到房东
+	    //CustPerson custPerson = userService.findlandlordById(landlord_id);  //有的字段映射不出来 手写的方法 用resultType
+	    CustPerson custPerson = userService.selectByPrimaryKey(landlord_id);
 	    
 	    System.out.println(houseinfo.getTitle());
 	    model.addAttribute("houseinfo", houseinfo);   //房源信息
 	    model.addAttribute("custPerson", custPerson); //房东信息
+	    System.out.println("--------headUrl----"+custPerson);
+	    
 		return "house/show1";
 	}
 	
