@@ -3,7 +3,7 @@
 <span>入住人数</span>
 <form action="" class="">
 	<input type='button' value="+"/>
-	<input type='text' value="1"/>
+	<input type='text' value="1" />
 	<input type='button' value="-"/><br>
 	<button type="button" class="btn btn-primary ok ">搜索</button>
 </form>
