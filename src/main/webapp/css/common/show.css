@@ -47,7 +47,7 @@
 }
 
 .configuration2,.configuration3,.configuration4{
-	margin-left:26px;
+	margin-left:80px;
 }
 
 .configuration5{
@@ -102,18 +102,18 @@
 }
 
 /*联系房东预订*/
-.booking{
-	width:100%;
-	height:100px;
-	border:1px solid blue;
+.apply_book_btn{
+	height:130px;
 	background-color:red;
-	text-align:center;
-	color:white;
-	font-size:30px;
-	font-weight:bold; 
-	position:fixed;
-	bottom:0px;
-	left:0px;
 }
+.apply_book_btn p{
+	color:white;
+	text-align:center;
+	font-size:40px;
+	font-weight:bold;
+	height:130px;
+	line-height:130px; 
+}
+
 
 

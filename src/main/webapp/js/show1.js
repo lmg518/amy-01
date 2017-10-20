@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	console.log(1);
 	
-	$('.booking').click(toOrder);  //联系房东预订  点击事件
+	$('.apply_book_btn').click(toOrder);  //联系房东预订  点击事件
 	
 })
 

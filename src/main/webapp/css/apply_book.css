@@ -6,8 +6,8 @@ body{
 	background-color:white;
 }
 .introduction img{
-	width:220px;
-	height:160px;
+	width:300px;
+	height:220px;
 	float:left;
 }
 .introduction span{
@@ -18,7 +18,7 @@ body{
 .span1{
 	margin-left:130px;
 	width:790px;
-	height:160px;
+	height:220px;
     /* border:1px solid blue; */
 }
 .introduction p{
@@ -30,7 +30,7 @@ body{
 /*旅行时间*/
 #title,#title1,#title2{
 	text-align:center;
-	font-size:40px;
+    font-size:40px;
 	font-weight:bold;
 }
 
@@ -73,7 +73,10 @@ body{
 /*入住人数宽度*/
 .staty_num{
 	height:200px;
-	border:1px solid blue;
+	width:930px;
+}
+.btn-corner .i1{
+	margin-left:100px;
 }
 .btn-corner input,span{
 	height:50px;
@@ -89,10 +92,8 @@ body{
 	height:180px;
 }
 .travel_plan input{
-	border:0;
 	margin-top:50px;
-	width:900px;
-	height:80px;
+	width:930px;
 	font-size:40px;
 }
 
@@ -101,8 +102,10 @@ body{
 
 /*入住人信息*/
 .userInfo{
+	margin-left:15px;
+	width:930px;
+	
 	height:300px;
-	border:1px solid blue;
 	background-color:white;
 }
 .userInfo span,font{
@@ -111,7 +114,7 @@ body{
 .userInfo input{
 	border:0;
 	margin-top:50px;
-	width:900px;
+	width:600px;
 	height:80px;
 	font-size:40px;
 }

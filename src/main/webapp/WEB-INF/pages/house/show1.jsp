@@ -86,7 +86,7 @@
 	<hr>
 	<!-- 入住须知 -->
 	<div class="notes">
-		<p class="p2">&nbsp入住&nbsp&nbsp 15:00以后&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp退房&nbsp&nbsp&nbsp&nbsp 12:00</p>
+		<p class="p2">&nbsp入住&nbsp&nbsp 15:00以后&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp退房&nbsp&nbsp&nbsp&nbsp 12:00以前</p>
 		<hr>
 			<div class="regulations">
 				<div class="options"><span class="p1">&nbsp可供出租日历</span></div><img src="images/show/arrow.jpg"/>
@@ -110,13 +110,9 @@
 	</div>
 
 	<!-- 联系房东预订 -->
-	<div class="booking">
+	<div class="apply_book_btn">
 		<p>联系房东预订</p>
 	</div>
-	
-	<br><br><br><br><br>
-	
-	
 	
 	
 </body>

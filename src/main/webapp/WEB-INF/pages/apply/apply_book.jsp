@@ -90,14 +90,14 @@ body{padding:0;margin:0 10px;}
 	 <p id="title1">入住人数</p>
 	<div class="staty_num">
 		<label class="btn-corner">
-			<input type="radio" name="value" value="1"><span>1</span>
+			<input class="i1" type="radio" name="value" value="1"><span>1</span>
 		    <input type="radio" name="value" value="2"><span>2</span>
 		    <input type="radio" name="value" value="3"><span>3</span>
 		    <input type="radio" name="value" value="4"><span>4</span>
 		</label>
 	</div>
 	
-	<!-- 旅行计划 -->
+	<!-- 入住人信息 -->
 	 <p id="title2">入住人信息</p>
 	<!-- <div class="travel_plan">
 		<input type="text" placeholder="简单介绍一下自己和您的旅行" />
@@ -107,7 +107,6 @@ body{padding:0;margin:0 10px;}
 		<font color="red">*</font><span>入住人：</span><input class="userName" type="text" placeholder="真实姓名" /><br>
 		<font color="red">*</font><span>身份证号：</span><input class="IDNum" type="text" placeholder="请填写真实证件号" />
 	</div>
-	<hr>
 	
 	
 	
