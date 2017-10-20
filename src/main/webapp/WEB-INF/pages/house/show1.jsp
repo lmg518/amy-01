@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+	<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	 -->
 	<style type="text/css">
 		#container{width:600px;height:500px;border:0px solid gray} 
 	</style>
@@ -14,13 +15,17 @@
 	<link rel="stylesheet" href="./css/common/show.css" />
 </head>
 <body>
-<%-- 简介：${houseinfo.title }
+<%-- 
+简介：${houseinfo.title }
 房东：${custPerson.name } 
 01：${custPerson.headUrl } 
-02：${houseinfo.imgUrl }  --%>
+02：${houseinfo.imgUrl }  
+${houseinfo.longitude }
+${houseinfo.latitude }
+--%>
 	<!-- 图片，标题 -->
 	<div class="content">
-		<input value=${houseinfo.houseInfoId } />
+		<input type="hidden" value=${houseinfo.houseInfoId } />
 		<img src="${houseinfo.imgUrl }" />
 		<p class="title">${houseinfo.houseType }</p>
 		<br>
@@ -120,35 +125,44 @@
 	
 </body>
 
-
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jlMaC5VZmtj04AhDFc0ANun9R2yVxfMT">
 		// v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
 		//v1.4版本及以前版本的引用方式：src="http://api.map.baidu.com/api?v=1.4&key=您的密钥&callback=initialize"
 	</script>
 	<script type="text/javascript"> 
 		var map = new BMap.Map("container");          // 创建地图实例
-		var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
-		map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别
+		var point = new BMap.Point(${houseinfo.longitude },${houseinfo.latitude });  // 创建点坐标
+		map.centerAndZoom(point, 15);                 // 将point移到浏览器中心，并且地图大小调整为20街道级;
 		// map.addControl(new BMap.NavigationControl);//地图平移缩放控件
 		map.addControl(new BMap.ScaleControl());//比例尺控件
 		map.addControl(new BMap.OverviewMapControl()); //缩放地图控件
 		map.addControl(new BMap.MapTypeControl()); //地图类型控件
 		var opts = {type: BMAP_NAVIGATION_CONTROL_ZOOM}    
 		map.addControl(new BMap.NavigationControl(opts));
-		
 		var marker = new BMap.Marker(point);        // 创建标注    
 		map.addOverlay(marker);                     // 将标注添加到地图中
+		
+		//创建信息窗口
+		var opts = {
+		width : 30, // 信息窗口宽度
+		height: 30, // 信息窗口高度
+		title : "欢迎加入爱美叶" // 信息窗口标题
+		}
+		var infoWindow = new BMap.InfoWindow("${houseinfo.houseType }", opts); // 创建信息窗口对象
+		map.openInfoWindow(infoWindow, map.getCenter()); // 打开信息窗口
+		
 		//自定义控件调用方法
 		// 创建控件实例    点击时放大2倍图片
 		/* var myZoomCtrl = new ZoomControl();
 		map.addControl(myZoomCtrl); */
-		
-		
-		/* var traffic = new BMap.TrafficLayer();        // 创建交通流量图层实例      
-		map.addTileLayer(traffic);                    // 将图层添加到地图上 */
-		
+		/* var traffic = new BMap.TrafficLayer();        // 创建交通流量图层实例   
+		map.addTileLayer(traffic);                    // 将图层添加到地图上   */
 		window.setTimeout(function(){  
-		    map.panTo(new BMap.Point(116.409, 39.918));    
-		}, 2000);
+		    map.panTo(new BMap.Point(${houseinfo.longitude },${houseinfo.latitude }));    
+		}, 1000);
+		
 	</script>  
+	
+	
+	
 </html>
