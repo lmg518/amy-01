@@ -9,16 +9,18 @@
 	<style type="text/css">
 		#container{width:600px;height:500px;border:0px solid gray} 
 	</style>
-	
+	<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="./js/show1.js"></script>
 	<link rel="stylesheet" href="./css/common/show.css" />
 </head>
 <body>
-简介：${houseinfo.title }
+<%-- 简介：${houseinfo.title }
 房东：${custPerson.name } 
 01：${custPerson.headUrl } 
-02：${houseinfo.imgUrl } 
+02：${houseinfo.imgUrl }  --%>
 	<!-- 图片，标题 -->
 	<div class="content">
+		<input value=${houseinfo.houseInfoId } />
 		<img src="${houseinfo.imgUrl }" />
 		<p class="title">${houseinfo.houseType }</p>
 		<br>
@@ -87,7 +89,7 @@
 	<hr>
 	<!-- 入住须知 -->
 	<div class="notes">
-		<p class="p2">&nbsp入住&nbsp&nbsp 15:00以后&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp退房&nbsp&nbsp&nbsp&nbsp 12:00</p>
+		<p class="p2">&nbsp入住&nbsp&nbsp 15:00以后&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp退房&nbsp&nbsp&nbsp&nbsp 12:00以前</p>
 		<hr>
 			<div class="regulations">
 				<div class="options"><span class="p1">&nbsp可供出租日历</span></div><img src="images/show/arrow.jpg"/>
@@ -111,13 +113,9 @@
 	</div>
 
 	<!-- 联系房东预订 -->
-	<div class="booking" onclick="location='apply_book.do'">
+	<div class="apply_book_btn">
 		<p>联系房东预订</p>
 	</div>
-	
-	<br><br><br><br><br>
-	
-	
 	
 	
 </body>

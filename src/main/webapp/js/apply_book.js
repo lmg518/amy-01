@@ -9,6 +9,8 @@ function f1(){
 	$("#title2").hide();
 	$(".travel_plan").hide();
 	$(".apply_book").hide();
+	
+	$(".userInfo").hide();
 }
 
 //
@@ -87,6 +89,8 @@ oCal.on('confirm', function() {
 		$("#title2").show();
 		$(".travel_plan").show();
 		$(".apply_book").show();
+		
+		$(".userInfo").show();
 		
 		
 });
