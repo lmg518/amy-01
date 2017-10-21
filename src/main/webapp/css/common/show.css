@@ -1,4 +1,38 @@
+/*图片展现区*/
+#houseImages{
+	background-color:#473c31;
+}
+#houseImages img{
+	width:100%;
+}
+#houseImages .i1{
+	height:50%;
+}
+#houseImages .swiper-slide{
+	margin:auto 0px;  /*图片所在的div上下居中  */
+}
+.houseImagesTitle{
+	font-size:50px;
+	font-weight:bold;
+	color:white;
+}
+.houseImagesInfos{
+	font-size:35px;
+	color:#c1bcbc;
+}
 
+#houseImages hr{
+	height:5px;
+	background-color:#645f54; /*需要加height属性，否则没效果*/
+	width:180px;   /*长度*/
+	margin-left:0;
+	border:none;
+}
+
+
+
+
+/*-----------------------*/
 .content img{
 	width:100%;
 	height:500px;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.amy.product.dao.HouseImageDao">
+	<!-- 根据house_info_id查询 -->
+	<select id="showHouseInfo" parameterType="java.lang.String" 
+		resultMap="cn.amy.product.dao.mapper.HouseImageMapper.BaseResultMap">
+  		SELECT 
+  			<include refid="cn.amy.product.dao.mapper.HouseImageMapper.Base_Column_List" />
+  		FROM
+  			house_image
+  		WHERE house_info_id =#{house_info_id}
+	</select>
+	
+</mapper>

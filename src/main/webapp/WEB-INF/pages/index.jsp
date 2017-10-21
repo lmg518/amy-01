@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${basePath}/static/css/main.css">
 <link rel="stylesheet" href="${basePath}/static/plugins/treegrid/jquery.treegrid.css"> --%>
 
-<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+<!-- <script type="text/javascript" src="./js/jquery-1.11.1.js"></script> -->
 
 <%-- <script src="${basePath}/bootstrap/js/bootstrap.min.js"></script>
 <script src="${basePath}/bootstrap/js/bootstrap-datepicker.min.js"></script>

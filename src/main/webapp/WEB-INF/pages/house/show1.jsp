@@ -1,18 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri= "http://java.sun.com/jsp/jstl/core" prefix= "c" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+    
+	<!-- 设置页面不可缩放 user-scalable=no
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	 -->
 	<style type="text/css">
 		#container{width:600px;height:500px;border:0px solid gray} 
 	</style>
 	<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
-	<script type="text/javascript" src="./js/show1.js"></script>
+	
 	<link rel="stylesheet" href="./css/common/show.css" />
+	
+	<!--swiper插件-->
+    <link rel="stylesheet" type="text/css" href="css/common/swiper-3.3.1.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/common/animate.min.css" />
+	<c:set var="size" value="${fn:length(houseImages) -1 }"></c:set>
 </head>
 <body>
 <%-- 
@@ -22,11 +30,63 @@
 02：${houseinfo.imgUrl }  
 ${houseinfo.longitude }
 ${houseinfo.latitude }
+${houseImages[0].houseImageUrl }
+${fn:length(houseImages)}  <!-- 获取集合的长度 -->
+${size }
 --%>
+
+
+<!-- 图片展现 -->
+	<div id="houseImages" style="display:none">
+	      <div class="swiper-container swiper-banner">
+			<div class="swiper-wrapper">
+			
+		    <div class="swiper-slide"><img class="i1" src="${houseImages[0].houseImageUrl }" />
+			    <!-- 标题 -->
+				<div class="houseImagesTitle">
+					<p>${houseinfo.houseType }</p>
+				</div>
+				<hr><br><br>
+				<!-- 单价/位置信息 -->
+				<div class="houseImagesInfos">
+					<span>${houseinfo.city }</span><span>/</span><span>${houseinfo.price }元</span>
+				    <p>${houseinfo.address }</p>
+				</div>
+	       </div>
+			 <!-- 从第二张图片开始遍历   c.count 获取到第几次 从1开始-->
+			<c:forEach begin="1" end="${size }" varStatus="c">
+			  <div class="swiper-slide"><img src="${houseImages[c.count].houseImageUrl }" /></div>
+		    </c:forEach>
+			
+			
+				
+			<%--  <div class="swiper-slide"><img class="i1" src="images/houses/house02_1001.jpg" />
+			    <!-- 标题 -->
+				<div class="houseImagesTitle">
+					<p>${houseinfo.houseType }</p>
+				</div>
+				<hr><br><br>
+				<!-- 单价/位置信息 -->
+				<div class="houseImagesInfos">
+					<span>${houseinfo.city }</span><span>/</span><span>${houseinfo.price }元</span>
+				    <p>${houseinfo.address }</p>
+				</div>
+			 </div>
+			 <div class="swiper-slide"><img src="images/houses/house02_1002.jpg" /></div>
+			 <div class="swiper-slide"><img src="images/houses/house02_1003.jpg" /></div>
+			 <div class="swiper-slide"><img src="images/houses/house02_1004.jpg" /></div>
+			 <div class="swiper-slide"><img src="images/houses/house02_1005.jpg" /></div>  --%>
+			
+			</div>
+			<div class="swiper-pagination swiper-pagination1" class="swiper-pagination swiper-pagination-small" style="width:13.2rem;"></div>
+		</div>
+	</div>
+
+<div id="otherInfo">
 	<!-- 图片，标题 -->
 	<div class="content">
 		<input type="hidden" value=${houseinfo.houseInfoId } />
-		<img src="${houseinfo.imgUrl }" />
+		<img id="houseImg" src="${houseinfo.imgUrl }" />
 		<p class="title">${houseinfo.houseType }</p>
 		<br>
 		
@@ -122,8 +182,13 @@ ${houseinfo.latitude }
 		<p>联系房东预订</p>
 	</div>
 	
+</div>	
 	
 </body>
+<!-- swipper插件 js需要放到下面包括show1.js -->
+<script src="js/common/swiper-3.3.1.jquery.min.js"></script>
+<script src="js/common/swiper.animate1.0.2.min.js"></script>
+<script type="text/javascript" src="./js/show1.js"></script>
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jlMaC5VZmtj04AhDFc0ANun9R2yVxfMT">
 		// v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
@@ -159,10 +224,8 @@ ${houseinfo.latitude }
 		map.addTileLayer(traffic);                    // 将图层添加到地图上   */
 		window.setTimeout(function(){  
 		    map.panTo(new BMap.Point(${houseinfo.longitude },${houseinfo.latitude }));    
-		}, 1000);
+		}, 1000); 
 		
 	</script>  
-	
-	
 	
 </html>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.amy.product.entity.HotActivity;
 import cn.amy.product.entity.HotCity;
+import cn.amy.product.entity.HouseImage;
 import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.service.ProductService;
 import cn.amy.user.entity.CustPerson;
@@ -56,9 +57,12 @@ public class IndexController {
 	    //CustPerson custPerson = userService.findlandlordById(landlord_id);  //有的字段映射不出来 手写的方法 用resultType
 	    CustPerson custPerson = userService.selectByPrimaryKey(landlord_id);
 	    
+	    List<HouseImage> houseImages=productService.findHouseImages(house_info_id); //查询房源的图片集
+	    
 	    System.out.println(houseinfo.getTitle());
 	    model.addAttribute("houseinfo", houseinfo);   //房源信息
 	    model.addAttribute("custPerson", custPerson); //房东信息
+	    model.addAttribute("houseImages", houseImages); //房源图片集
 	    System.out.println("--------headUrl----"+custPerson);
 	    
 		return "house/show1";

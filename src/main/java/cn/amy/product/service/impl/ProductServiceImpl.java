@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 
 import cn.amy.product.dao.HotActivityDao;
 import cn.amy.product.dao.HotCityDao;
+import cn.amy.product.dao.HouseImageDao;
 import cn.amy.product.dao.HouseInfoDao;
 import cn.amy.product.entity.HotActivity;
 import cn.amy.product.entity.HotCity;
+import cn.amy.product.entity.HouseImage;
 import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.service.ProductService;
 
@@ -28,6 +30,9 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Resource
 	private HotActivityDao hotActivityDao;
+	
+	@Resource
+	private HouseImageDao houseImageDao;  //房源图片集接口
 	
 	@Override
 	public List<HouseInfo> queryHouseInfo(String province, String createTime, Integer predictSum) throws ParseException {
@@ -56,6 +61,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public HouseInfo showHouseInfo(String house_info_id) {
 		return houseInfoDao.showHouseInfo(house_info_id);
+	}
+
+	@Override
+	public List<HouseImage> findHouseImages(String house_info_id) {
+		return houseImageDao.showHouseInfo(house_info_id);
 	}
 
 }

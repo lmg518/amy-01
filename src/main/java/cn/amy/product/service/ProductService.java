@@ -5,6 +5,7 @@ import java.util.List;
 
 import cn.amy.product.entity.HotActivity;
 import cn.amy.product.entity.HotCity;
+import cn.amy.product.entity.HouseImage;
 import cn.amy.product.entity.HouseInfo;
 
 public interface ProductService {
@@ -19,6 +20,8 @@ public interface ProductService {
 	public List<HouseInfo> queryHouseInfo(String province,String createTime,Integer predictSum) throws ParseException;
 	
 	HouseInfo showHouseInfo(String house_info_id); //根据房源id查询
+	
+	List<HouseImage> findHouseImages(String house_info_id); //根据房源id查询房源图片集
 	
 	/**
 	 * 查询首页显示的地址图片信息
