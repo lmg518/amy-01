@@ -12,10 +12,10 @@
         	AND	province = #{province,jdbcType=VARCHAR}
       	</if>
       	<if test="predictSum != null">
-        	AND predictSum = #{predictSum,jdbcType=INTEGER}
+        	AND predict_sum = #{predictSum,jdbcType=INTEGER}
       	</if>
   		<if test="createTime != null">
-        	AND	createTime = #{createTime,jdbcType=TIMESTAMP}
+        	AND	create_time = #{createTime,jdbcType=TIMESTAMP}
       	</if>
 	</select>
 	

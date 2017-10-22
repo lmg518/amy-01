@@ -13,10 +13,12 @@ import cn.amy.product.dao.HotActivityDao;
 import cn.amy.product.dao.HotCityDao;
 import cn.amy.product.dao.HouseImageDao;
 import cn.amy.product.dao.HouseInfoDao;
+import cn.amy.product.dao.PriceCalendarDao;
 import cn.amy.product.entity.HotActivity;
 import cn.amy.product.entity.HotCity;
 import cn.amy.product.entity.HouseImage;
 import cn.amy.product.entity.HouseInfo;
+import cn.amy.product.entity.PriceCalendar;
 import cn.amy.product.service.ProductService;
 
 @Service("productService")
@@ -33,6 +35,9 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Resource
 	private HouseImageDao houseImageDao;  //房源图片集接口
+	
+	@Resource
+	private PriceCalendarDao priceCalendarDao;  //价格日历接口
 	
 	@Override
 	public List<HouseInfo> queryHouseInfo(String province, String createTime, Integer predictSum) throws ParseException {
@@ -66,6 +71,21 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<HouseImage> findHouseImages(String house_info_id) {
 		return houseImageDao.showHouseInfo(house_info_id);
+	}
+
+	@Override
+	public List<PriceCalendar> findAllPriceCalendar(PriceCalendar priceCalendar) {
+		return priceCalendarDao.findAllPriceCalendar(priceCalendar);
+	}
+
+	@Override
+	public PriceCalendar findByHouseInfoIdAndDateTime(PriceCalendar priceCalendar) {
+		return priceCalendarDao.findByHouseInfoIdAndDateTime(priceCalendar);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(PriceCalendar record) {
+		return priceCalendarDao.updateByPrimaryKeySelective(record);
 	}
 
 }

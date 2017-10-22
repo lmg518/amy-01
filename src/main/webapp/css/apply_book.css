@@ -75,15 +75,28 @@ body{
 	height:200px;
 	width:930px;
 }
-.btn-corner .i1{
+.staty-info .i1{
 	margin-left:100px;
 }
-.btn-corner input,span{
+.staty-info input,span{
 	height:50px;
 	width:50px;
 	font-size:40px;
-	margin-left:18px;
+	margin-left:50px;
 	margin-top:60px;
+}
+
+
+
+
+
+/*日历表中房源信息样式*/
+.btn-corner input,span{
+	height:15px;
+	width:50px;
+	font-size:24px;
+	margin-left:5px;
+	margin-top:20px;
 } 
 
 

@@ -50,6 +50,7 @@ body{padding:0;margin:0 10px;}
 
 	<!-- 房源简介 -->
 	<div class="introduction">
+	<input type="hidden" value=${houseinfo.houseInfoId } />
 	    <img src="${houseinfo.imgUrl }" />
 		 <div class="span1">
 		     <span>${houseinfo.houseType }</span><br>
@@ -79,23 +80,24 @@ body{padding:0;margin:0 10px;}
 		
 		<br>
 		<div class="button" style="display:none;">
-			<button class="J_Limit" data-limit="7" style="height:80px;font-size:30px;">限定范围（今天->90天）</button>
-			<button class="J_Limit" data-limit="7" data-date="2017-10-1" style="height:80px;font-size:30px;">指定日历时间（2012年10月1号->60天）</button>
+			<button class="J_Limit" data-limit="14" style="height:80px;font-size:30px;">限定范围（今天->90天）</button>
+			<button class="J_Limit" data-limit="14" data-date="2017-10-1" style="height:80px;font-size:30px;">指定日历时间（2012年10月1号->60天）</button>
         </div>
 	</div>
 	
 	
 	
 	<!-- 入住人数 -->
+	
 	 <p id="title1">入住人数</p>
-	<div class="staty_num">
-		<label class="btn-corner">
+	 <div class="staty_num">
+		<label class="staty-info">
 			<input class="i1" type="radio" name="value" value="1"><span>1</span>
 		    <input type="radio" name="value" value="2"><span>2</span>
 		    <input type="radio" name="value" value="3"><span>3</span>
 		    <input type="radio" name="value" value="4"><span>4</span>
 		</label>
-	</div>
+	 </div>
 	
 	<!-- 入住人信息 -->
 	 <p id="title2">入住人信息</p>
@@ -112,12 +114,13 @@ body{padding:0;margin:0 10px;}
 	
 	<!-- 申请预订 -->
 	<div class="apply_book">
-		<p onclick="apply_booking();">申请预订</p>
+		<p onclick="order();">申请预订</p>
 	</div>
-	
 	
 	<hr>
 	<h1 onclick="location='editUserUI.do'">注册</h1>
+	
+	
 	
 
 </body>

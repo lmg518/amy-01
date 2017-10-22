@@ -4,6 +4,7 @@ function f1(){
 	$(".price-calendar-bounding-box .bottom").show();
 	$(".button").show();
 	
+	//其他信息隐藏
 	$("#title1").hide();
 	$(".staty_num").hide();
 	$("#title2").hide();
@@ -15,31 +16,34 @@ function f1(){
 
 //
 function getParams(){
-	var rdoValue = $('.staty_num .btn-corner').find(':radio:checked').val(); //获取入住人数
+	var rdoValue = $('.staty_num .staty-info').find(':radio:checked').val(); //获取入住人数
 	var begin_date=$('.go_time .J_Count').html();
 	var end_date=$('.leave_time .J_Count').html();
 	//获取用户信息
 	var userName=$('.userInfo .userName').val();
 	var IDNum=$('.userInfo .IDNum').val();
 	
+	//房源id
+	var house_info_id=$('.introduction input').val();
+	
 	var params={
 			'stay_num':rdoValue,
 			'begin_date':begin_date,
 			'end_date':end_date,
 			'userName':userName,
-			'IDNum':IDNum
+			'IDNum':IDNum,
+			'house_info_id':house_info_id
 	}
 	console.log(params);
 	return params;
 }
 
 //申请预订
-function apply_booking(){
+function order(){
 	var url="apply_booking.do";
 	var params=getParams();
 	$.post(url,params,function(result){
-		console.log(result)
-		document.location.href="order.do";
+		document.location.href="order.do";  //转到订单详情页面
 	});
 	
 }
@@ -68,7 +72,7 @@ modules: {
 YUI(config).use('price-calendar', 'jsonp', function(Y) {
 var sub  = Y.Lang.sub;
 
-var url = 'findHouseById.do?minDate={mindate}&maxDate={maxdate}&callback={callback}';
+var url = 'findHouseById.do?minDate={mindate}&maxDate={maxdate}&house_info_id={house_info_id}&callback={callback}';
 
 //价格日历实例
 var oCal = new Y.PriceCalendar();
@@ -101,6 +105,17 @@ oCal.on('cancel', function() {
 	$(".price-calendar-bounding-box .content-box").hide();
 	$(".price-calendar-bounding-box .bottom").hide();
 	$(".button").hide();
+	
+	
+	//其他信息显示
+	$("#title1").show();
+	$(".staty_num").show();
+	$("#title2").show();
+	$(".travel_plan").show();
+	$(".apply_book").show();
+	
+	$(".userInfo").show();
+	
 	
 });
 Y.one('#J_Example').delegate('click', function(e) {
@@ -138,7 +153,8 @@ if(oTarget.hasClass('J_Show'))
 	Y.jsonp(
 	sub(url, {
 	mindate:this.get('minDate'),
-	maxdate:this.get('maxDate')
+	maxdate:this.get('maxDate'),
+	house_info_id:$('.introduction input').val()
 	}),
 	{
 	on: {

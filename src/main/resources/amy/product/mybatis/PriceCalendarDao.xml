@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.amy.product.dao.PriceCalendarDao">
+	<!-- 根据house_info_id查询 -->
+	<select id="findAllPriceCalendar" parameterType="cn.amy.product.entity.PriceCalendar" 
+		resultMap="cn.amy.product.dao.mapper.PriceCalendarMapper.BaseResultMap">
+  		SELECT 
+  			<include refid="cn.amy.product.dao.mapper.PriceCalendarMapper.Base_Column_List" />
+  		FROM
+  			price_calendar
+  			WHERE 1=1
+  		<if test="houseInfoId != null">
+        	AND	house_info_id = #{houseInfoId,jdbcType=VARCHAR}
+      	</if>
+      	<if test="status != null">
+        	AND status = #{status,jdbcType=CHAR}
+      	</if>
+  			
+  			
+	</select>
+	
+	<!-- 根据house_info_id  date_time查询 -->
+	<select id="findByHouseInfoIdAndDateTime" parameterType="cn.amy.product.entity.PriceCalendar"
+		resultMap="cn.amy.product.dao.mapper.PriceCalendarMapper.BaseResultMap">
+  		SELECT 
+  			<include refid="cn.amy.product.dao.mapper.PriceCalendarMapper.Base_Column_List" />
+  		FROM
+  			price_calendar
+  		WHERE 1=1
+  		<if test="houseInfoId != null">
+        	AND	house_info_id = #{houseInfoId,jdbcType=VARCHAR}
+      	</if>
+      	<if test="dateTime != null">
+        	AND date_time = #{dateTime,jdbcType=DATE}
+      	</if>
+  			
+  			
+	</select>
+	
+</mapper>
