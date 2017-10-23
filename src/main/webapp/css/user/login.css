@@ -1,0 +1,24 @@
+
+.login_list_con{
+	display: none;
+}
+.login_list_con.active{
+	display: block;
+}
+.forget_pwd{
+	padding-right: 20px;
+	padding-left: 20px;
+	height: 30px;
+	padding-top: 10px;
+}
+.register_box{
+	text-align: center;
+	margin-top: 20px;
+	letter-spacing: 1px;
+}
+
+#login_btn.active{
+	background: #EDEDED;
+	border: 1px solid #EDEDED;
+	color:#bcbdb6;
+}

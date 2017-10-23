@@ -10,5 +10,20 @@ public interface UserService {
 	//查询房东
     CustPerson findlandlordById(String landlord_id);
     CustPerson selectByPrimaryKey(String landlord_id);
+    
+    /**
+     * 手机号查询用户
+     * @param phone
+     * @return
+     */
+    User selectByPhone(String phone);
+    
+    /**
+     * 通过用户名和密码判断是否正确
+     * @param userName
+     * @param password
+     * @return
+     */
+    Boolean userLoginService(String userName,String password);
 
 }

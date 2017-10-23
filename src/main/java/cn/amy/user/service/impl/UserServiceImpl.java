@@ -1,17 +1,25 @@
 package cn.amy.user.service.impl;
 
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import cn.amy.common.ServiceException;
 import cn.amy.user.dao.CustPersonDao;
 import cn.amy.user.dao.UserDao;
 import cn.amy.user.entity.CustPerson;
 import cn.amy.user.entity.User;
 import cn.amy.user.service.UserService;
+import cn.amy.util.MD2Util;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
+	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	
 	@Resource
 	private UserDao userDao;
@@ -37,6 +45,33 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public CustPerson selectByPrimaryKey(String landlord_id) {
 		return custPersonDao.selectByPrimaryKey(landlord_id);
+	}
+
+
+
+	@Override
+	public User selectByPhone(String phone) {
+		return userDao.selectUserByPhone(phone);
+	}
+
+
+
+	@Override
+	public Boolean userLoginService(String userName, String password) {
+		try {
+			password = MD2Util.HMAC_SHA1_ENCODE(password.toString().getBytes("UTF-8"), "1234567".toString().getBytes("UTF-8"));
+			HashMap<String,String> map = new HashMap<String,String>();
+			map.put("userName", userName);
+			map.put("password", password);
+			User user = userDao.queryUserByUserNameAndPassword(map);
+			logger.info("用户名为{}的用户登录，密码为：{}，登录信息为：{}",userName,password, user != null?user.toString():"null");
+			if(user!=null){
+				return true;
+			}
+		} catch (UnsupportedEncodingException e) {
+			throw new ServiceException("加密错误", false);
+		}
+		return false;
 	}
 
 }

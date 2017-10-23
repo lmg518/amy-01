@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.amy.user.dao.UserDao">
+	
+	<!-- 查询用户是否存在 -->
+	<select id="selectUserByPhone" parameterType="String" resultType="cn.amy.user.entity.User">
+		SELECT 
+			<include refid="cn.amy.user.dao.mapper.UserMapper.Base_Column_List" />
+		FROM
+			user
+		WHERE
+			phone = #{phone,jdbcType=VARCHAR}
+		LIMIT 1
+	</select>
+	
+	<!-- 用户名和密码 -->
+	<select id="queryUserByUserNameAndPassword" parameterType="Map" resultType="cn.amy.user.entity.User">
+		SELECT 
+			<include refid="cn.amy.user.dao.mapper.UserMapper.Base_Column_List" />
+		FROM
+			user
+		WHERE
+			user_name = #{userName,jdbcType=VARCHAR}
+		AND
+			password = #{password,jdbcType=VARCHAR}
+		LIMIT 1
+	</select>
+</mapper>
