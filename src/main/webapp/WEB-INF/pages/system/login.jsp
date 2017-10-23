@@ -27,10 +27,10 @@
 				<span class="common_log_list_left color_gray">密码</span>
 				<input type="password" placeholder="请输入6-16位密码" class="font_size_14" id="password" name="password">
 			</div>
-			<div class="forget_pwd">
+			<!-- <div class="forget_pwd">
 				<a href="smsLogin.html" class="font_size_16 color_green left">短信登录</a>
 				<a href="forgetPwd.html" class="font_size_16 color_green right">忘记密码？</a>
-			</div>
+			</div> -->
 			<div class="common_log_btn_box">
 				<button class="color_green_btn" onclick="login()" id="login_btn">登录</button>
 			</div>
