@@ -35,7 +35,7 @@
 				<button class="color_green_btn" onclick="login()" id="login_btn">登录</button>
 			</div>
 			<div class="register_box">
-				<a href="register.html" class="color_green font_size_16">
+				<a href="registerPage.do" class="color_green font_size_16">
 					-----注册-----
 				</a>
 			</div>

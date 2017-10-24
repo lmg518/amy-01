@@ -1,0 +1,10 @@
+.login_box{
+	text-align: center;
+	margin-top: 20px;
+	letter-spacing: 1px;
+}
+#register_btn.active{
+	background: #EDEDED;
+	border: 1px solid #EDEDED;
+	color:#bcbdb6;
+}

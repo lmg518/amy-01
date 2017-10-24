@@ -44,6 +44,8 @@
       <param-name>unfilteredURIs</param-name>
       <param-value>
 	      			(/amy-jpminsu-01/loginPage\.do)
+	      			|(/amy-jpminsu-01/registerPage\.do)
+	      			|(/amy-jpminsu-01/register\.do)
 	      			|(/amy-jpminsu-01/user/LoginController/logout\.do)
 	      			|(/amy-jpminsu-01/login\.do)
 	      			|(/amy-jpminsu-01/indexUI\.do)

@@ -23,11 +23,32 @@ public class LoginController {
 	@Resource
 	private UserService userService;
 	
+	/**
+	 * 跳转到登录页面
+	 * @return
+	 */
 	@RequestMapping("/loginPage")
 	public String loginPage(){
 		return "/system/login";
 	}
+	
+	/**
+	 * 跳转到注册页面
+	 * @return
+	 */
+	@RequestMapping("/registerPage")
+	public String registerPage(){
+		return "/system/register";
+	}
 
+	
+	/**
+	 * 用户登录
+	 * @param httpSession
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value="/login",produces="text/html;charset=utf-8")  
 	public String clientLogin(HttpSession httpSession,String userName,String password){  
@@ -53,4 +74,26 @@ public class LoginController {
 	    }  
 		return obj.toJSONString();
 	} 
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/register",produces="text/html;charset=utf-8")  
+	public String register(HttpSession httpSession,String userName,String password){  
+		User user = userService.selectByPhone(userName);
+		JSONObject obj = new JSONObject();
+		if(user != null){
+			obj.put("success", false);
+			obj.put("message", "您的手机号已注册，请直接登录！");
+			return JSON.toJSONString(obj);
+		}
+		Integer status = userService.userRegisterService(userName, password);
+		if(status > 0){
+			obj.put("success", true);
+		}else{
+			obj.put("success", false);
+			obj.put("message", "注册失败");
+		}
+		return obj.toJSONString();
+	} 
+	
 }

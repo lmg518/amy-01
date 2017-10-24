@@ -26,4 +26,11 @@ public interface UserService {
      */
     Boolean userLoginService(String userName,String password);
 
+    /**
+     * 用户注册
+     * @param userName
+     * @param password
+     * @return
+     */
+    Integer userRegisterService(String userName,String password);
 }

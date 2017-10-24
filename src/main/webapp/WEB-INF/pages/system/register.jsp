@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <title>注册</title>
-<link rel="stylesheet" href="../common/css/common.css">
-<link rel="stylesheet" href="../css/user/register.css">
-<link rel="stylesheet" href="../common/css/weui.css">
+<link rel="stylesheet" href="${basePath}static/css/common.css">
+<link rel="stylesheet" href="${basePath}css/user/register.css">
+<link rel="stylesheet" href="${basePath}common/css/jquery-weui.css">
 </head>
 <body>
 	<div class="common_tittle background_white">
@@ -37,12 +37,12 @@
 		</div>
 	</div>
 	<div class="login_box">
-		<a href="login.html" class="color_green font_size_16"> -----登录-----
+		<a href="loginPage.do" class="color_green font_size_16"> -----登录-----
 		</a>
 	</div>
 </body>
-<script src="../common/js/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="../common/js/common.js?v=20170915174216"></script>
-<script type="text/javascript" src="register.js?v=20170915174216"></script>
-<script type="text/javascript" src="../common/js/weui.min.js"></script>
+<script src="${basePath}js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="${basePath}js/common/common.js?v=20170915174216"></script>
+<script type="text/javascript" src="${basePath}js/system/register.js?v=20170915174216"></script>
+<script type="text/javascript" src="${basePath}common/js/weui.min.js"></script>
 </html>

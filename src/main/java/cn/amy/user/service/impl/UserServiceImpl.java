@@ -2,6 +2,7 @@ package cn.amy.user.service.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
@@ -72,6 +73,29 @@ public class UserServiceImpl implements UserService {
 			throw new ServiceException("加密错误", false);
 		}
 		return false;
+	}
+
+
+
+	/**
+	 * 用户注册，保存注册信息
+	 */
+	@Override
+	public Integer userRegisterService(String userName, String password) {
+		Integer status = 0;
+		try {
+			password = MD2Util.HMAC_SHA1_ENCODE(password.toString().getBytes("UTF-8"), "1234567".toString().getBytes("UTF-8"));
+			User user = new User();
+			user.setUserId(UUID.randomUUID().toString());
+			user.setUserName(userName);
+			user.setPhone(userName);
+			user.setPassword(password);
+			user.setInvitationCode("无");
+			status = userDao.insertSelective(user);
+		} catch (UnsupportedEncodingException e) {
+			throw new ServiceException("加密错误", false);
+		}
+		return status;
 	}
 
 }
