@@ -6,7 +6,7 @@
 
 <script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
 <script src="./js/price-calendar/yui-min.js"></script>
-<script src="./js/apply_book.js"></script>
+<script src="./js/apply/apply_book.js"></script>
 
 
 <!-- <script type="text/javascript">
@@ -118,7 +118,7 @@ body{padding:0;margin:0 10px;}
 	</div>
 	
 	<hr>
-	<h1 onclick="location='editUserUI.do'">注册</h1>
+	<!-- <h1 onclick="location='editUserUI.do'">注册</h1> -->
 	
 	
 	

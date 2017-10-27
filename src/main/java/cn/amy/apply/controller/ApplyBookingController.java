@@ -4,20 +4,26 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.datetime.joda.LocalDateParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.amy.apply.entity.HouseStatus;
+import cn.amy.apply.entity.HouseOrder;
 import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.entity.PriceCalendar;
 import cn.amy.product.service.ProductService;
@@ -50,6 +56,19 @@ public class ApplyBookingController {
 	}
 	
 	//点击申请预订 
+	/**
+	 * 点击申请预定
+	 * 1.
+	 * @param model
+	 * @param stay_num
+	 * @param begin_date
+	 * @param end_date
+	 * @param userName
+	 * @param IDNum
+	 * @param house_info_id
+	 * @return
+	 * @throws ParseException
+	 */
 	@RequestMapping("apply_booking.do")
 	public String apply_booking(Model model,String stay_num,String begin_date,
 			String end_date,String userName,String IDNum,String house_info_id) throws ParseException{
@@ -66,17 +85,42 @@ public class ApplyBookingController {
 		
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		Date d1=sdf.parse(begin_date);
+		Date d2 = sdf.parse(end_date);
+		
 		PriceCalendar p1=new PriceCalendar();
 		p1.setDateTime(d1);
 		p1.setHouseInfoId(house_info_id);
+		//保存订单信息
+		HouseOrder houseOrder = new HouseOrder();
+		houseOrder.setOrderId(UUID.randomUUID().toString());
+		houseOrder.setHouseInfoId(house_info_id);
+		LocalDate localDate = LocalDate.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+		StringBuilder orderNum = new StringBuilder();;
+		Random random = new Random();
+		orderNum.append(localDate.format(dtf)).append(System.currentTimeMillis())
+			.append(random.nextInt(10)).append(random.nextInt(10)).append(random.nextInt(10));
+		houseOrder.setOrderNum(orderNum.toString());//年月日时分秒+时间戳+3位随机数
+		houseOrder.setTotalPrice(null);
+		houseOrder.setDeposit(null);
+		houseOrder.setCoupons(null);
+		houseOrder.setHouseDeposit(null);
+		houseOrder.setPayPrice(null);
+		houseOrder.setBeginDate(d1);
+		houseOrder.setEndDate(d2);
+		houseOrder.setStayDays(null);
+		houseOrder.setStayId(null);
+		houseOrder.setStayPhone(null);
+		houseOrder.setRoomNum(null);
+		//houseOrder.setStayNum(stayNum);
+		//houseOrder.setOrderStatus(orderStatus);
+		//houseOrder.setPayStatus(payStatus);
+		houseOrder.setPayTime(null);
 		
 		//找到要修改的预订价格日历数据
 		PriceCalendar pc=productService.findByHouseInfoIdAndDateTime(p1);
 		pc.setStatus("Y"); //修改价格日历中 房源状态   默认：N未预订  Y:已预订  W:已入住
 		productService.updateByPrimaryKeySelective(pc);  //修改价格日历中状态
-		
-		
-		
 		model.addAttribute("houseinfo", houseinfo);   //房源信息
 		
 		
