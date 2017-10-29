@@ -37,4 +37,37 @@
   			
 	</select>
 	
+	
+	<!-- 根据house_info_id  start_time,end_time查询 -->
+	<select id="queryPriceCalendarByStartEndTime" parameterType="cn.amy.product.entity.PriceCalendar"
+		resultMap="cn.amy.product.dao.mapper.PriceCalendarMapper.BaseResultMap">
+  		SELECT 
+  			<include refid="cn.amy.product.dao.mapper.PriceCalendarMapper.Base_Column_List" />
+  		FROM
+  			price_calendar
+  		WHERE 1=1
+  		<if test="houseInfoId != null">
+        	AND	house_info_id = #{houseInfoId,jdbcType=VARCHAR}
+      	</if>
+      	<if test="startTime != null and startTime !=''">
+        	AND date_time &gt;= #{startTime,jdbcType=DATE}
+      	</if>
+      	<if test="endTime != null and endTime !=''">
+        	AND date_time &lt;= #{endTime,jdbcType=DATE}
+      	</if>
+      	<if test="status != null">
+        	AND status = #{status,jdbcType=CHAR}
+      	</if>
+	</select>
+	
+	
+	<!-- 更新状态 -->
+	<update id="updatePriceCalendarByStartEndTime" parameterType="cn.amy.product.entity.PriceCalendar">
+		update price_calendar set status = 'Y' where 
+		house_info_id = #{houseInfoId,jdbcType=VARCHAR}
+		AND date_time between #{startTime,jdbcType=DATE} AND #{endTime,jdbcType=DATE}
+		<if test="status != null">
+        	AND status = #{status,jdbcType=CHAR}
+      	</if>
+	</update>
 </mapper>
