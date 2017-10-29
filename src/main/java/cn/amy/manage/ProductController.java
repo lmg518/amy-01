@@ -2,7 +2,8 @@ package cn.amy.manage;
 
 import java.text.ParseException;
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
@@ -67,20 +68,23 @@ public class ProductController {
 		return new JsonResult(list);
 	}
 	
-	//修改信息
-	@ResponseBody   
+	//修改房源信息
 	@RequestMapping("/house/doUpdataProject")
+	@ResponseBody
 	public JsonResult doUpdataProject(HouseInfo houseInfo){
-		//ps.updataObject(project);
+		productService.updateByPrimaryKeySelective(houseInfo);
 		System.out.println("-----update-----"+houseInfo);
 		return  new JsonResult();
 	}
 	
-	//处理添加项目
-	@ResponseBody   
+	//保存房源信息
 	@RequestMapping("/house/doSaveProject")
+	@ResponseBody
 	public JsonResult doSaveProject(HouseInfo houseInfo){
-		//ps.saveObject(project);
+		houseInfo.setHouseInfoId(UUID.randomUUID().toString());  //设置房源id
+		
+		
+		productService.insertSelective(houseInfo);
 		System.out.println("-----save---:"+houseInfo);
 		return  new JsonResult();
 	}

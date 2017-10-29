@@ -17,11 +17,12 @@ function showEditDialog(){
 	var title;	
 	if($(this).hasClass("btn-update")){
 		title="修改项目"
-		//将id 绑定到 打开的模态框上
+		//将id 绑定到 打开的模态框上  修改时绑定id
 		$("#modal-dialog").data("id",$(this).parent().parent().data("id"));
-		
+		console.log("-----2----")
 	}
 	if($(this).hasClass("btn-add")){
+		console.log("----1----")
 		title="添加项目"
 	}
 		

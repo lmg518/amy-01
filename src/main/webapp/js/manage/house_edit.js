@@ -1,33 +1,37 @@
 $(document).ready(function(){
 	
-	//保存或更新操作(在这写 会保存二次)
-//	$("#modal-dialog").on('click','.ok',doSaveOrUpdate);
-//	//获得模态框上绑定的id值
-//	var id=$("#modal-dialog").data("id");
-//	console.log(id);
-//	//假如id有值,说明这是修改,然后根据id获得对象,初始化模态框数据
-//	if(id)doGetObjectById(id);
 	
+	
+	
+	//保存或更新操作(在这写 会保存二次)
+	$("#modal-dialog").on('click','.ok',doSaveOrUpdate);
 	
 	//当模态框隐藏时在.ok上绑定的事件执行解绑动作
 	$("#modal-dialog").on(
-	   "hidden.bs.modal",function() {
-		$(this).off('click', '.ok')
-		       .removeData("id")
+	   "hidden.bs.modal",function() {$(this).off('click', '.ok').removeData("id")
 	});
 	
 	
-});
+	//获得模态框上绑定的id值
+	var id=$("#modal-dialog").data("id");
+	console.log(id);
+	//假如id有值,说明这是修改,然后根据id获得对象,初始化模态框数据
+	if(id)doGetObjectById(id);
+	
+	
+	
+	
+	
+})
 
 
 //保存或更新操作 （写在自动加载区 会保存二次）
-$("#modal-dialog").on('click','.ok',doSaveOrUpdate);
+//$("#modal-dialog").on('click','.ok',doSaveOrUpdate);
 //获得模态框上绑定的id值
-var id=$("#modal-dialog").data("id");
-console.log(id);
-//假如id有值,说明这是修改,然后根据id获得对象,初始化模态框数据
-if(id)doGetObjectById(id);			
-
+//var id=$("#modal-dialog").data("id");
+//console.log(id);
+////假如id有值,说明这是修改,然后根据id获得对象,初始化模态框数据
+//if(id)doGetObjectById(id);	
 
 
 
@@ -67,7 +71,7 @@ function doSaveOrUpdate(){
 	var params=doGetEditFormData();
 	//2.将数据提交到服务端
 	var id=$("#modal-dialog").data("id");
-	var url=id?"house/doUpdateProject.do":"house/doSaveProject.do";
+	var url=id?"house/doUpdataProject.do":"house/doSaveProject.do";
 	$.post(url,params,function(result){
 		if(result.state==1){
 			//1)隐藏模态框
@@ -87,7 +91,7 @@ function doSaveOrUpdate(){
 //获得表单数据
 function doGetEditFormData(){
 	var params={
-		"id":$("#modal-dialog").data("id"),//更新时需要
+		"houseInfoId":$("#modal-dialog").data("id"),//更新时需要
 		
 		"title":$("#titleId").val(),
 		"city":$("#cityId").val(),

@@ -41,4 +41,23 @@ public interface ProductService {
 	 * @return
 	 */
 	List<HotActivity> queryHotActivity();
+	
+	/**
+	 * 更新房源信息
+	 * @param houseInfo
+	 * @return
+	 */
+	int updateByPrimaryKeySelective(HouseInfo houseInfo);
+	
+	/**
+	 * 保存房源信息
+	 * @param houseInfo
+	 * @return
+	 */
+	int insertSelective(HouseInfo houseInfo);
+	
+	
+	
+	
+	
 }

@@ -88,4 +88,14 @@ public class ProductServiceImpl implements ProductService {
 		return priceCalendarDao.updateByPrimaryKeySelective(record);
 	}
 
+	@Override
+	public int updateByPrimaryKeySelective(HouseInfo houseInfo) {
+		return houseInfoDao.updateByPrimaryKeySelective(houseInfo);
+	}
+
+	@Override
+	public int insertSelective(HouseInfo houseInfo) {
+		return houseInfoDao.insertSelective(houseInfo);
+	}
+
 }
