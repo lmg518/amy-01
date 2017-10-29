@@ -828,4 +828,21 @@ public class HouseInfo {
     public void setToiletSum(Integer toiletSum) {
         this.toiletSum = toiletSum;
     }
+
+	@Override
+	public String toString() {
+		return "HouseInfo [houseInfoId=" + houseInfoId + ", landlordId=" + landlordId + ", title=" + title
+				+ ", province=" + province + ", city=" + city + ", price=" + price + ", district=" + district
+				+ ", address=" + address + ", longitude=" + longitude + ", latitude=" + latitude + ", signatureUrl="
+				+ signatureUrl + ", imgUrl=" + imgUrl + ", predictSum=" + predictSum + ", isHotHouse=" + isHotHouse
+				+ ", creater=" + creater + ", createTime=" + createTime + ", modifyUser=" + modifyUser + ", modifyTime="
+				+ modifyTime + ", houseType=" + houseType + ", houseDescribe=" + houseDescribe + ", grade=" + grade
+				+ ", roomSum=" + roomSum + ", bedroomSum=" + bedroomSum + ", bedSum=" + bedSum + ", toiletSum="
+				+ toiletSum + "]";
+	}
+    
+    
+    
+    
+    
 }
