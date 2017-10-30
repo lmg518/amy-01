@@ -16,13 +16,20 @@ $(document).ready(function(){
 function deleteHouse(){
 	var id=$(this).parent().parent().find(".checkbox").val();
 	console.log(id);
-	alert("确定要删除"+id+"吗？");
+	//alert("确定要删除"+id+"吗？");
 	
-	var url="house/delete.do";
-	var params={"id":id};
-	$.post(url,params,function(){
-		doGetObjects();
-	});
+	if(confirm('确定要删除吗？')){
+		
+		var url="house/delete.do";
+		var params={"id":id};
+		$.post(url,params,function(){
+			doGetObjects();
+		});
+		
+	}else{
+		alert('删除失败！')
+	}
+	
 }
 
 
