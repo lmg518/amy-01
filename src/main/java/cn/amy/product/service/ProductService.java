@@ -41,4 +41,15 @@ public interface ProductService {
 	 * @return
 	 */
 	List<HotActivity> queryHotActivity();
+	
+	//修改
+	int updateByPrimaryKeySelective(HouseInfo houseInfo);
+	
+	//保存
+	int insertSelective(HouseInfo houseInfo);
+	
+	//删除
+	int deleteByPrimaryKey(String houseInfoId);
+	
+	
 }

@@ -3,6 +3,7 @@ package cn.amy.manage;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
@@ -72,16 +73,28 @@ public class ProductController {
 	@RequestMapping("/house/doUpdataProject")
 	public JsonResult doUpdataProject(HouseInfo houseInfo){
 		//ps.updataObject(project);
+		productService.updateByPrimaryKeySelective(houseInfo);
 		System.out.println("-----update-----"+houseInfo);
 		return  new JsonResult();
 	}
 	
-	//处理添加项目
+	//添加项目
 	@ResponseBody   
 	@RequestMapping("/house/doSaveProject")
 	public JsonResult doSaveProject(HouseInfo houseInfo){
-		//ps.saveObject(project);
+		houseInfo.setHouseInfoId(UUID.randomUUID().toString());  //添加房源id
+		
+		productService.insertSelective(houseInfo);
 		System.out.println("-----save---:"+houseInfo);
+		return  new JsonResult();
+	}
+	
+	//删除房源信息
+	@ResponseBody
+	@RequestMapping("/house/delete")
+	public JsonResult doDelete(String id){
+		System.out.println("----delete----"+id);
+		productService.deleteByPrimaryKey(id);
 		return  new JsonResult();
 	}
 	
