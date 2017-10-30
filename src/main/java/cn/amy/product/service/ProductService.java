@@ -42,22 +42,15 @@ public interface ProductService {
 	 */
 	List<HotActivity> queryHotActivity();
 	
-	/**
-	 * 更新房源信息
-	 * @param houseInfo
-	 * @return
-	 */
+
+	//修改
 	int updateByPrimaryKeySelective(HouseInfo houseInfo);
 	
-	/**
-	 * 保存房源信息
-	 * @param houseInfo
-	 * @return
-	 */
+	//保存
 	int insertSelective(HouseInfo houseInfo);
 	
-	
-	
+	//删除
+	int deleteByPrimaryKey(String houseInfoId);
 	
 	
 }

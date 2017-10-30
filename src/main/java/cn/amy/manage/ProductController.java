@@ -2,11 +2,8 @@ package cn.amy.manage;
 
 import java.text.ParseException;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
-
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -77,15 +74,23 @@ public class ProductController {
 		return  new JsonResult();
 	}
 	
-	//保存房源信息
+	//添加项目
 	@RequestMapping("/house/doSaveProject")
 	@ResponseBody
 	public JsonResult doSaveProject(HouseInfo houseInfo){
-		houseInfo.setHouseInfoId(UUID.randomUUID().toString());  //设置房源id
-		
+		houseInfo.setHouseInfoId(UUID.randomUUID().toString());  //添加房源id
 		
 		productService.insertSelective(houseInfo);
 		System.out.println("-----save---:"+houseInfo);
+		return  new JsonResult();
+	}
+	
+	//删除房源信息
+	@ResponseBody
+	@RequestMapping("/house/delete")
+	public JsonResult doDelete(String id){
+		System.out.println("----delete----"+id);
+		productService.deleteByPrimaryKey(id);
 		return  new JsonResult();
 	}
 	

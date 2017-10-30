@@ -98,4 +98,9 @@ public class ProductServiceImpl implements ProductService {
 		return houseInfoDao.insertSelective(houseInfo);
 	}
 
+	@Override
+	public int deleteByPrimaryKey(String houseInfoId) {
+		return houseInfoDao.deleteByPrimaryKey(houseInfoId);
+	}
+
 }

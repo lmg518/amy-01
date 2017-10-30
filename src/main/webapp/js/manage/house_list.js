@@ -5,10 +5,26 @@ $(document).ready(function(){
 	//修改项目信息
 	$('#queryFormId').on("click",".btn-update",showEditDialog);
 	
+	//删除项目信息
+	$('#queryFormId').on("click",".btn-delete",deleteHouse);
 	
 	//初始化页面
 	doGetObjects();
 });
+
+//删除房源信息
+function deleteHouse(){
+	var id=$(this).parent().parent().find(".checkbox").val();
+	console.log(id);
+	alert("确定要删除"+id+"吗？");
+	
+	var url="house/delete.do";
+	var params={"id":id};
+	$.post(url,params,function(){
+		doGetObjects();
+	});
+}
+
 
 //显示模态框
 function showEditDialog(){
@@ -32,12 +48,6 @@ function showEditDialog(){
 		$('#modal-dialog').modal('show');
 	});
 }
-
-
-
-
-
-
 
 
 
@@ -88,7 +98,9 @@ function setTableRows(list){
 			'<td>[title]</td>'+   
 			'<td>[city]</td>'+
 	        '<td>[district]</td>'+
-	        '<td><a class="btn btn-default btn-update doShowEditDialog">修改</a></td>';
+	        '<td><a class="btn btn-default btn-update doShowEditDialog">修改</a>'+
+	        '&nbsp&nbsp<a class="btn btn-default btn-delete">删除</a>'+
+	        '</td>';
 	for(var i in list){
 	    var tr=$('<tr></tr>');
 	    tr.data("id",list[i].houseInfoId);
@@ -122,25 +134,6 @@ function setProjectOptions(list){
 	 selectObj.append("<option value='"+list[i].id+"'>"+list[i].name+"</option>");
 	}
 }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //显示编辑模态框
