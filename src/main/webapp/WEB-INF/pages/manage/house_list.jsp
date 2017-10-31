@@ -4,15 +4,16 @@
 <html>
 <head>
 
+<link rel="stylesheet" href="${basePath}/common/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${basePath}/common/bootstrap/css/bootstrap-table.min.css">
+
+
 <!-- 引入分页的js -->
 <script type="text/javascript" src="${basePath}/js/manage/page.js"></script>
  
 <!-- 引入js文件 -->
 <script type="text/javascript" src="${basePath}/js/manage/house_list.js"></script>
 <script type="text/javascript" src="${basePath}/js/manage/house_edit.js"></script>
-
-
-
 </head>
 
 <body>
@@ -51,16 +52,21 @@
 			</div>
 			<!-- 列表显示内容 -->
 			<div class="row col-md-12">
-				<table class="table table-bordered">
+				<table style="font-size:15px;" class="table table-bordered">
 					<thead>
 						<tr>
-						    <th>选择</th>
-						    
+						    <th style="width:50px;">选择</th>
 						    <th>标题</th>
-							<th>城市</th>
-							<th>所在区</th>
-							
-							<th>操作</th>
+							<th style="width:50px;">城市</th>
+							<th style="width:80px;">所在区</th>
+							<th>地址</th>
+							<th>房源类型</th>
+							<th>房源介绍</th>
+							<th>房客数量</th>
+							<th>卧室数量</th>
+							<th style="width:50px;">床数量</th>
+							<th style="width:70px;">卫生间数量</th>
+							<th style="width:140px;">操作</th>
 						</tr>
 					</thead>
 					

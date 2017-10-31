@@ -1,9 +1,12 @@
 package cn.amy.manage;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -79,7 +82,8 @@ public class ProductController {
 	@ResponseBody
 	public JsonResult doSaveProject(HouseInfo houseInfo){
 		houseInfo.setHouseInfoId(UUID.randomUUID().toString());  //添加房源id
-		
+		Date d=new Date();
+		houseInfo.setCreateTime(d);        //当前时间作为创建时间
 		productService.insertSelective(houseInfo);
 		System.out.println("-----save---:"+houseInfo);
 		return  new JsonResult();

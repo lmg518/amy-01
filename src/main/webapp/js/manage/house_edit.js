@@ -47,9 +47,18 @@ function doGetObjectById(id){
 //将获得的数据填充到form表单中
 function doFillFormData(obj){
 	
-	$("#titleId").val(obj.title);   //首页中的标题
-	$("#cityId").val(obj.city);     //城市    根据house_edit.jsp中 <input id>
-	$("#districtId").val(obj.district); //区域
+	$("#titleId").val(obj.title);           //首页中的标题
+	$("#provinceId").val(obj.province);     //省份
+	$("#cityId").val(obj.city);             //城市    根据house_edit.jsp中 <input id>
+	$("#districtId").val(obj.district);     //区域
+	
+	$("#addressId").val(obj.address);        //地址
+	$("#houseTypeId").val(obj.houseType);    //房源类型
+	$("#houseDescribeId").val(obj.houseDescribe);    //房源介绍
+	$("#roomSumId").val(obj.roomSum);          //可入住房客人数
+	$("#bedroomSumId").val(obj.bedroomSum);    //卧室数量
+	$("#bedSumId").val(obj.bedSum);    //床数量
+	$("#toiletSumId").val(obj.toiletSum);    //卫生间数量
 	
 	/*$("#beginDateId").val(obj.beginDate);//2017/08/09 
 	$("#endDateId").val(obj.endDate);*/
@@ -65,6 +74,7 @@ function doSaveOrUpdate(){
 	var id=$("#modal-dialog").data("id");
 	var url=id?"house/doUpdataProject.do":"house/doSaveProject.do";
 	$.post(url,params,function(result){
+		console.log(result);
 		if(result.state==1){
 			//1)隐藏模态框
 			$("#modal-dialog").modal("hide");
@@ -83,8 +93,16 @@ function doGetEditFormData(){
 		"houseInfoId":$("#modal-dialog").data("id"),//更新时需要
 		
 		"title":$("#titleId").val(),
+		"province":$("#provinceId").val(),
 		"city":$("#cityId").val(),
 		"district":$("#districtId").val(),
+		"address":$("#addressId").val(),
+		"houseType":$("#houseTypeId").val(),
+		"houseDescribe":$("#houseDescribeId").val(),
+		"roomSum":$("#roomSumId").val(),
+		"bedroomSum":$("#bedroomSumId").val(),
+		"bedSum":$("#bedSumId").val(),
+		"toiletSum":$("#toiletSumId").val()
 		
 		/*"beginDate":$("#beginDateId").val(),
 		"endDate":$("#endDateId").val(),

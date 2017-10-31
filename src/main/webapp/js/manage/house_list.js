@@ -105,6 +105,15 @@ function setTableRows(list){
 			'<td>[title]</td>'+   
 			'<td>[city]</td>'+
 	        '<td>[district]</td>'+
+	        
+	        '<td>[address]</td>'+
+	        '<td>[houseType]</td>'+
+	        '<td>[houseDescribe]</td>'+
+	        '<td>[roomSum]</td>'+
+	        '<td>[bedroomSum]</td>'+
+	        '<td>[bedSum]</td>'+
+	        '<td>[toiletSum]</td>'+
+	        
 	        '<td><a class="btn btn-default btn-update doShowEditDialog">修改</a>'+
 	        '&nbsp&nbsp<a class="btn btn-default btn-delete">删除</a>'+
 	        '</td>';
@@ -114,7 +123,15 @@ function setTableRows(list){
 	    tr.append(tds.replace('[id]',list[i].houseInfoId)
 	    		  .replace('[title]',list[i].title)
 	    		  .replace('[city]',list[i].city)
-	    		  .replace('[district]',list[i].district));
+	    		  .replace('[district]',list[i].district)
+	    		  .replace('[address]',list[i].address)
+	    		  .replace('[houseType]',list[i].houseType)
+	    		  .replace('[houseDescribe]',list[i].houseDescribe)
+	    		  .replace('[roomSum]',list[i].roomSum)
+	    		  .replace('[bedroomSum]',list[i].bedroomSum)
+	    		  .replace('[bedSum]',list[i].bedroomSum)
+	    		  .replace('[toiletSum]',list[i].bedroomSum)
+	    );
 	    tBody.append(tr);
 	}
 }
