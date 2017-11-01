@@ -38,10 +38,31 @@ $('.datepicker').datepicker({
 	</div>
 	
 	<div class="form-group">
-		<label for="project-code" class="col-sm-2 control-label">地址:</label> 
+		<label for="project-code" class="col-sm-2 control-label">经度:</label> 
 		<div class="col-sm-10">
-		<input type="text" class="form-control required" name="address" id="addressId" placeholder="请输入地址">
+		<input type="text" class="form-control required" name="longitude" id="longitudeId" >
 		</div>
+	</div>
+	<div class="form-group">
+		<label for="project-code" class="col-sm-2 control-label">纬度:</label> 
+		<div class="col-sm-10">
+		<input type="text" class="form-control required" name="latitude" id="latitudeId" >
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="project-code" class="col-sm-2 control-label">地址:</label> 
+		<ul class="list-unstyled list-inline">
+			<li class='O1'>
+				<div class="col-sm-10">
+					<input type="text" class="form-control required" name="address" id="addressId" style="width:360px;">
+				</div>
+			</li>
+			<li class='O2'><button type="button" class="btn btn-primary map" style="float:left">地图</button></li>
+		</ul>
+		
+		
+		
 	</div>
 	
 	<div class="form-group">
@@ -54,7 +75,9 @@ $('.datepicker').datepicker({
 	<div class="form-group">
 		<label for="project-code" class="col-sm-2 control-label">房源介绍:</label> 
 		<div class="col-sm-10">
-		<input type="text" class="form-control required" name="houseDescribe" id="houseDescribeId" placeholder="请输入房源介绍">
+		<!-- <input type="text" class="form-control required" name="houseDescribe" id="houseDescribeId" placeholder="请输入房源介绍"> -->
+		<textarea rows="3" cols="62" id="houseDescribeId" placeholder="请输入房源介绍"></textarea>
+		
 		</div>
 	</div>
 	

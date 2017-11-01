@@ -106,6 +106,9 @@ function setTableRows(list){
 			'<td>[city]</td>'+
 	        '<td>[district]</td>'+
 	        
+	        '<td>[longitude]</td>'+
+	        '<td>[latitude]</td>'+
+	        
 	        '<td>[address]</td>'+
 	        '<td>[houseType]</td>'+
 	        '<td>[houseDescribe]</td>'+
@@ -124,6 +127,10 @@ function setTableRows(list){
 	    		  .replace('[title]',list[i].title)
 	    		  .replace('[city]',list[i].city)
 	    		  .replace('[district]',list[i].district)
+	    		  
+	    		  .replace('[longitude]',list[i].longitude)
+	    		  .replace('[latitude]',list[i].latitude)
+	    		  
 	    		  .replace('[address]',list[i].address)
 	    		  .replace('[houseType]',list[i].houseType)
 	    		  .replace('[houseDescribe]',list[i].houseDescribe)

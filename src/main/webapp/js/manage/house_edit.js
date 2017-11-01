@@ -52,6 +52,8 @@ function doFillFormData(obj){
 	$("#cityId").val(obj.city);             //城市    根据house_edit.jsp中 <input id>
 	$("#districtId").val(obj.district);     //区域
 	
+	$("#longitudeId").val(obj.longitude);        //经度
+	$("#latitudeId").val(obj.latitude);        //纬度
 	$("#addressId").val(obj.address);        //地址
 	$("#houseTypeId").val(obj.houseType);    //房源类型
 	$("#houseDescribeId").val(obj.houseDescribe);    //房源介绍
@@ -96,6 +98,10 @@ function doGetEditFormData(){
 		"province":$("#provinceId").val(),
 		"city":$("#cityId").val(),
 		"district":$("#districtId").val(),
+		
+		"longitude":$("#longitudeId").val(),
+		"latitude":$("#latitudeId").val(),
+		
 		"address":$("#addressId").val(),
 		"houseType":$("#houseTypeId").val(),
 		"houseDescribe":$("#houseDescribeId").val(),

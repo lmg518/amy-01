@@ -59,6 +59,8 @@
 						    <th>标题</th>
 							<th style="width:50px;">城市</th>
 							<th style="width:80px;">所在区</th>
+							<th>经度</th>
+							<th>纬度</th>
 							<th>地址</th>
 							<th>房源类型</th>
 							<th>房源介绍</th>
