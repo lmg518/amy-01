@@ -58,7 +58,7 @@ $('.datepicker').datepicker({
 					<input type="text" class="form-control required" name="address" id="addressId" style="width:360px;">
 				</div>
 			</li>
-			<li class='O2'><button type="button" class="btn btn-primary map" style="float:left">地图</button></li>
+			<li class='O2'><button type="button" class="btn btn-primary map" id="baiduMap" style="float:left">地图</button></li>
 		</ul>
 		
 		

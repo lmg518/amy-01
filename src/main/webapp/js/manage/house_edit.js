@@ -15,8 +15,9 @@
 //})
 
 $(document).ready(function(){
-	$("#modal-dialog").on('click','.ok',
-			doSaveOrUpdate);
+	$("#modal-dialog").on('click','.ok',doSaveOrUpdate);
+	$("#baiduMap").click(showBaiduMap); //显示地图
+			
 	//获得模态框上绑定的id值
 	var id=$("#modal-dialog").data("id");
 	//假如id有值,说明这是修改,然后根据id获得对象,初始化模态框数据
@@ -28,6 +29,17 @@ $(document).ready(function(){
 		       .removeData("id")
 	});
 })
+
+//$("#modal-dialog").on('click','#baiduMap',showBaiduMap);  //会调用二次
+
+
+function showBaiduMap(){
+	console.log(1);
+	var url="baiduMap.do";
+	document.location.href=url;
+}
+
+
 
 //根据id查找房源对象
 function doGetObjectById(id){

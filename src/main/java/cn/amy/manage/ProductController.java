@@ -97,6 +97,11 @@ public class ProductController {
 		productService.deleteByPrimaryKey(id);
 		return  new JsonResult();
 	}
+	//显示地图
+	@RequestMapping("baiduMap.do")
+	public String city(){
+		return "/manage/map";
+	}
 	
 	
 	
