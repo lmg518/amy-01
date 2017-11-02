@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <script type="text/javascript">
 //初始化datepicker对象
 $('.datepicker').datepicker({
@@ -109,30 +110,23 @@ $('.datepicker').datepicker({
 		</div>
 	</div>
 	
-	
-	
-	
-	
-	<!--
-	<div class="form-group">
-		<label for="project-code"  class="col-sm-2 control-label">开始时间:</label> 
-		<div class="col-sm-10">
-		<input type="text" class="form-control datepicker " name="code" id="beginDateId">
-		</div>
-	</div>
-	 <div class="form-group">
-		<label for="project-code" class="col-sm-2 control-label">结束时间:</label> 
-		<div class="col-sm-10">
-		<input type="text" class="form-control datepicker "  name="code" id="endDateId">
-		</div>
-	</div> -->
-	
-	
-    
-    
-	
-	
-	
 </form>
 <c:url var="url" value="/js/manage/house_edit.js"></c:url>
 <script type="text/javascript" src="${url}"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

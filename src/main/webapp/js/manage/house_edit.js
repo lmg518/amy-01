@@ -33,11 +33,11 @@ $(document).ready(function(){
 //$("#modal-dialog").on('click','#baiduMap',showBaiduMap);  //会调用二次
 
 
-function showBaiduMap(){
+/*function showBaiduMap(){
 	console.log(1);
-	var url="baiduMap.do";
-	document.location.href=url;
-}
+	//$('#modal-dialog').modal('hide');
+	$("#baidumap").show();  //显示地图
+}*/
 
 
 

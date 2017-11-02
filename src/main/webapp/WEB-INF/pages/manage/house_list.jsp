@@ -52,7 +52,7 @@
 			</div>
 			<!-- 列表显示内容 -->
 			<div class="row col-md-12">
-				<table style="font-size:15px;" class="table table-bordered">
+				<table style="font-size:15px;" class="table table-bordered table-hover">
 					<thead>
 						<tr>
 						    <th style="width:50px;">选择</th>
