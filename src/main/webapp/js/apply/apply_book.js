@@ -22,7 +22,6 @@ function getParams(){
 	var IDNum=$('.userInfo .IDNum').val();
 	//房源id
 	var house_info_id=$('.introduction input').val();
-	debugger
 	if(rdoValue == undefined || rdoValue == ""){
 		alert("请选择入住人数");
 		return;
@@ -57,11 +56,31 @@ function getParams(){
 function order(){
 	var url="apply_booking.do";
 	var params=getParams();
-	$.post(url,params,function(result){
-		document.location.href="order.do";  //转到订单详情页面
+	$.post(url,params,function(data){
+		console.log(data);
+		var data = $.parseJSON(data);
+		if(data.success){
+			window.location.href="order.do?orderNum="+data.orderNum+"&priceSum="+data.priceSum+"&deposit="+(data.deposit == undefined?0:data.deposit);  //转到订单详情页面
+			
+		}else{
+			alert(data.message);
+		}
 	});
 }
 
+function toOrder(orderNum,priceSum,deposit){
+	$.post(
+		"order.do",
+		{
+			orderNum:orderNum,
+			priceSum:priceSum,
+			deposit:deposit
+		},
+		function(){
+			
+		}
+	);
+}
 
 
 
