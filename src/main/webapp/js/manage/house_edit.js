@@ -39,7 +39,13 @@ $(document).ready(function(){
 	$("#baidumap").show();  //显示地图
 }*/
 
-
+//地图按钮事件
+function showBaiduMap(){
+	//$('#modal-dialog').modal('hide');  //隐藏模态框
+	$("#modal-dialog").css('display','none'); //隐藏模态框
+	$('#container').hide(); //隐藏表格数据
+	$("#baidumap").show();
+}
 
 //根据id查找房源对象
 function doGetObjectById(id){
@@ -78,9 +84,9 @@ function doFillFormData(obj){
 	$("#endDateId").val(obj.endDate);*/
 }
 
-//保存或更新数据
+//保存或更新数据 debugger;
 function doSaveOrUpdate(){
-	debugger;
+	console.log(2);
 	if($("#editFormId").valid()){//required
 	//1.获得表单数据
 	var params=doGetEditFormData();
