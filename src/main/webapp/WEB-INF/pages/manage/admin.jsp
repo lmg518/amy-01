@@ -7,7 +7,7 @@
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <META HTTP-EQUIV="Expires" CONTENT="0">
-<title>Insert title here</title>
+<title>艾美叶后台管理系统</title>
 
 <link rel="stylesheet" href="${basePath}/common/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="${basePath}/common/bootstrap/css/bootstrap-datepicker.min.css" />
@@ -29,7 +29,6 @@
 <script src="${basePath}/static/plugins/treegrid/jquery.treegrid.extension.js"></script>
 <script src="${basePath}/static/plugins/treegrid/tree.table.js"></script>
 <script src="${basePath}/static/plugins/ztree/jquery.ztree.all.min.js"></script>
-
 
 </head>
 <body>
@@ -56,6 +55,7 @@
     </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- modal -->
+  
 </body>
 </html>
 

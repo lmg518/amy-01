@@ -15,8 +15,9 @@
 //})
 
 $(document).ready(function(){
-	$("#modal-dialog").on('click','.ok',
-			doSaveOrUpdate);
+	$("#modal-dialog").on('click','.ok',doSaveOrUpdate);
+	$("#baiduMap").click(showBaiduMap); //显示地图
+			
 	//获得模态框上绑定的id值
 	var id=$("#modal-dialog").data("id");
 	//假如id有值,说明这是修改,然后根据id获得对象,初始化模态框数据
@@ -28,6 +29,23 @@ $(document).ready(function(){
 		       .removeData("id")
 	});
 })
+
+//$("#modal-dialog").on('click','#baiduMap',showBaiduMap);  //会调用二次
+
+
+/*function showBaiduMap(){
+	console.log(1);
+	//$('#modal-dialog').modal('hide');
+	$("#baidumap").show();  //显示地图
+}*/
+
+//地图按钮事件
+function showBaiduMap(){
+	//$('#modal-dialog').modal('hide');  //隐藏模态框
+	$("#modal-dialog").css('display','none'); //隐藏模态框
+	$('#container').hide(); //隐藏表格数据
+	$("#baidumap").show();
+}
 
 //根据id查找房源对象
 function doGetObjectById(id){
@@ -66,9 +84,9 @@ function doFillFormData(obj){
 	$("#endDateId").val(obj.endDate);*/
 }
 
-//保存或更新数据
+//保存或更新数据 debugger;
 function doSaveOrUpdate(){
-	debugger;
+	console.log(2);
 	if($("#editFormId").valid()){//required
 	//1.获得表单数据
 	var params=doGetEditFormData();
