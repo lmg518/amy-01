@@ -1,13 +1,20 @@
 package cn.amy.product.service.impl;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import cn.amy.product.dao.HotActivityDao;
 import cn.amy.product.dao.HotCityDao;
@@ -102,5 +109,62 @@ public class ProductServiceImpl implements ProductService {
 	public int deleteByPrimaryKey(String houseInfoId) {
 		return houseInfoDao.deleteByPrimaryKey(houseInfoId);
 	}
+	
+	//上传图片
+	@Override
+	public void uploadImage(String houseInfoId, MultipartFile mfile, HttpServletRequest req) {
+		
+     //String servicePath=req.getServletContext().getRealPath("/"); //获取到服务器的项目文件路径
+	String servicePath=req.getSession().getServletContext().getRealPath("/");
+		
+    System.out.println("服务器的路径："+servicePath);
+		
+		String ofileName=mfile.getOriginalFilename();  //获取到文件名
+		System.out.println("原文件名："+ofileName);  //default.html
+		//服务器的路径：D:\WorkSpace_Spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\amy-jpminsu-01\
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String dateStr=sdf.format(new Date()); //以当前的日期作为保存 文件夹名
+		
+		String newFileName=UUID.randomUUID().toString()+"."
+		+FilenameUtils.getExtension(ofileName);//获取到文件的扩展名 封装的类
+		System.out.println("新文件名："+newFileName);
+		
+		
+		File dest;  //上传文件保存到服务器端的文件
+		byte[] fileBytes; //文件的字节数据
+		String fileDigest;  //文件摘要 
+		
+		try {
+			fileBytes=mfile.getBytes();
+			
+			//Linux系统
+			//dest=new File("/home/soft01/upFiles/"+dateStr+"/"+newFileName);
+			
+			//windos系统
+			//dest=new File("D:/upFiles/"+dateStr+"/"+newFileName);
+			
+			//保存到服务器的路经下 
+			//dest=new File(servicePath+dateStr+"/"+newFileName); 
+			dest=new File(servicePath+"images/houses"+"/"+newFileName); 
+			
+			File parent=dest.getParentFile();
+			
+			if(!parent.exists()){
+				parent.mkdirs();
+			}
+			
+			mfile.transferTo(dest);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("UpLoad Error!");
+		}
+		
+		HouseInfo houseinfo=houseInfoDao.selectByPrimaryKey(houseInfoId);
+		houseinfo.setImgUrl(dest.getPath());
+		houseInfoDao.updateByPrimaryKeySelective(houseinfo);  //更新到数据库中
+	}
+
+	
 
 }

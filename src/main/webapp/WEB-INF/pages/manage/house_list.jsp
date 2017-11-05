@@ -14,6 +14,22 @@
 <!-- 引入js文件 -->
 <script type="text/javascript" src="${basePath}/js/manage/house_list.js"></script>
 <script type="text/javascript" src="${basePath}/js/manage/house_edit.js"></script>
+<!-- 表格样式 -->
+<style>
+	#thead,#tbody tr,th{
+		text-align:center;
+	}
+	#thead tr{
+		background-color:gray;
+	}
+	#tbody a{
+		font-size:13px;
+		/* border:1px solid red; */
+		width:46px;
+		height:28px;
+	}
+</style>
+
 </head>
 
 <body>
@@ -52,13 +68,13 @@
 			</div>
 			<!-- 列表显示内容 -->
 			<div class="row col-md-12">
-				<table style="font-size:15px;" class="table table-bordered table-hover">
-					<thead>
+				<table style="font-size:12px;" class="table table-bordered table-hover">
+					<thead id="thead">
 						<tr>
-						    <th style="width:50px;">选择</th>
+						    <th>选择</th>
 						    <th>标题</th>
-							<th style="width:50px;">城市</th>
-							<th style="width:80px;">所在区</th>
+							<th>城市</th>
+							<th>所在区</th>
 							<th>经度</th>
 							<th>纬度</th>
 							<th>地址</th>
@@ -66,9 +82,9 @@
 							<th>房源介绍</th>
 							<th>房客数量</th>
 							<th>卧室数量</th>
-							<th style="width:50px;">床数量</th>
-							<th style="width:70px;">卫生间数量</th>
-							<th style="width:140px;">操作</th>
+							<th>床数量</th>
+							<th>卫生间数量</th>
+							<th>操作</th>
 						</tr>
 					</thead>
 					

@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.service.ProductService;
@@ -21,6 +23,21 @@ public class ProductController {
 	
 	@Resource	
 	private ProductService productService;
+	
+	/*-------------DemoImg测试------------------*/
+	/*@RequestMapping("demoImg.do")
+	public String demoImg(){
+		return "manage/demoImg";
+	}
+	//@ResponseBody
+	@RequestMapping("fileUpload")
+	public String fileUpload(HttpServletRequest req,String name,MultipartFile img){
+		//String img1=req.getParameter("img");
+		System.out.println("--name---"+name);
+		System.out.println("--img---"+img);
+		return "manage/demoImg";
+	}*/
+	/*-------------DemoImg测试------------------*/
 	
 	//后台首页
 	@RequestMapping("admin.do")
@@ -97,13 +114,28 @@ public class ProductController {
 		productService.deleteByPrimaryKey(id);
 		return  new JsonResult();
 	}
-	//显示地图
-	@RequestMapping("baiduMap.do")
-	public String city(){
-		return "/manage/map";
+	
+	//转到附件页面
+	@RequestMapping("/house/uploadImages")
+	public String uploadImages(String id) {
+		System.out.println("---id----"+id);
+		return "manage/attachment";
 	}
-	
-	
+		
+    //上传附件
+	@RequestMapping("/house/doSaveObject")
+	@ResponseBody
+	public JsonResult doSaveObject(String title,
+			MultipartFile file,HttpServletRequest req){
+		
+		System.out.println("title:"+title);
+		System.out.println("mfile:"+file);
+		System.out.println("mfile:"+file.getName());
+		String houseInfoId="4";
+		productService.uploadImage(houseInfoId, file, req);
+		//attrachementService.saveObject2(title,athType,belongId,mfile, req);
+		return new JsonResult();
+	}
 	
 
 }

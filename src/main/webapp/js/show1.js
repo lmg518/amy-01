@@ -34,8 +34,5 @@ function houseImages(){
 
 function toOrder(){
 	var house_info_id=$('.content input').val();
-	
-	
 	document.location.href="apply_book.do?house_info_id="+house_info_id;
-	
 }

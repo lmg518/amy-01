@@ -3,6 +3,10 @@ package cn.amy.product.service;
 import java.text.ParseException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import cn.amy.product.entity.HotActivity;
 import cn.amy.product.entity.HotCity;
 import cn.amy.product.entity.HouseImage;
@@ -51,6 +55,9 @@ public interface ProductService {
 	
 	//删除
 	int deleteByPrimaryKey(String houseInfoId);
+	
+	//上传图片
+	void uploadImage(String houseInfoId,MultipartFile mfile,HttpServletRequest req);
 	
 	
 }

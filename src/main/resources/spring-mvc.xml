@@ -43,20 +43,6 @@
 		<property name="basePackage" value="cn.amy.*.dao"/>
 	</bean>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<!-- 配置组件扫描 @Controller -->
 	<context:component-scan base-package="cn.amy"/>
 	
@@ -74,6 +60,24 @@
     <bean id="conversionService"
         class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
     </bean>
+    
+    
+   <!-- 配置文件上传 -->
+   <bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 默认编码 -->
+		<property name="defaultEncoding" value="utf-8" />
+		<!-- 文件大小最大值 -->
+		<property name="maxUploadSize" value="10485760000" />
+		<!-- 内存中的最大值 -->
+		<property name="maxInMemorySize" value="40960" />
+  </bean>
+    
+    
+    
+    
+    
+    
 	
 	
 </beans>

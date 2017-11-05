@@ -8,28 +8,43 @@ $(document).ready(function(){
 	//删除项目信息
 	$('#queryFormId').on("click",".btn-delete",deleteHouse);
 	
+	//附件
+	$('#queryFormId').on("click",".btn-attach",uploadImages);
+	
 	//初始化页面
 	doGetObjects();
 });
+
+
+//上传图片
+function uploadImages(){
+	var id=$(this).parent().parent().find(".checkbox").val();  //获取房源id
+	console.log(id);
+	var url="house/uploadImages.do?id="+id;
+	//跳转到上传图片页面
+	
+	$('#container').data("athType",1);
+	$('#container').data("belongId",1);
+	
+	$('#container').load(url);
+	//document.location.href="house/uploadImages.do?id="+id;
+}
+
+
 
 //删除房源信息
 function deleteHouse(){
 	var id=$(this).parent().parent().find(".checkbox").val();
 	console.log(id);
-	//alert("确定要删除"+id+"吗？");
-	
 	if(confirm('确定要删除吗？')){
-		
 		var url="house/delete.do";
 		var params={"id":id};
 		$.post(url,params,function(){
 			doGetObjects();
 		});
-		
 	}else{
 		alert('删除失败！')
 	}
-	
 }
 
 
@@ -118,7 +133,8 @@ function setTableRows(list){
 	        '<td>[toiletSum]</td>'+
 	        
 	        '<td><a class="btn btn-default btn-update doShowEditDialog">修改</a>'+
-	        '&nbsp&nbsp<a class="btn btn-default btn-delete">删除</a>'+
+	        '<a class="btn btn-default btn-delete">删除</a>'+
+	        '<a class="btn btn-default btn-attach">附件</a>'+
 	        '</td>';
 	for(var i in list){
 	    var tr=$('<tr></tr>');

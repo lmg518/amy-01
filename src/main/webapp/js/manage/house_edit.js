@@ -41,8 +41,15 @@ $(document).ready(function(){
 
 //地图按钮事件
 function showBaiduMap(){
-	//$('#modal-dialog').modal('hide');  //隐藏模态框
-	$("#modal-dialog").css('display','none'); //隐藏模态框
+	
+//	var url="baiduMap.do"
+//	$('#map1').load(url,function(){
+//		$('#map1').show();
+//	});
+	
+	
+	//$("#modal-dialog").css('display','none'); //隐藏模态框
+	$("#modal-dialog").modal('hide');
 	$('#container').hide(); //隐藏表格数据
 	$("#baidumap").show();
 }
