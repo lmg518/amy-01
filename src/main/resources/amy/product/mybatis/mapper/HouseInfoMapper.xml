@@ -31,6 +31,7 @@
     <result column="bedroom_sum" jdbcType="INTEGER" property="bedroomSum" />
     <result column="bed_sum" jdbcType="INTEGER" property="bedSum" />
     <result column="toilet_sum" jdbcType="INTEGER" property="toiletSum" />
+    <result column="deposit" jdbcType="DECIMAL" property="deposit" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -40,7 +41,7 @@
     house_info_id, landlord_id, title, province, city, price, district, address, longitude, 
     latitude, signature_url, img_url, predict_sum, is_hot_house, creater, create_time, 
     modify_user, modify_time, house_type, house_describe, grade, room_sum, bedroom_sum, 
-    bed_sum, toilet_sum
+    bed_sum, toilet_sum, deposit
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     <!--
@@ -73,7 +74,7 @@
       create_time, modify_user, modify_time, 
       house_type, house_describe, grade, 
       room_sum, bedroom_sum, bed_sum, 
-      toilet_sum)
+      toilet_sum, deposit)
     values (#{houseInfoId,jdbcType=VARCHAR}, #{landlordId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
       #{district,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{longitude,jdbcType=DECIMAL}, 
@@ -82,7 +83,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
       #{houseType,jdbcType=VARCHAR}, #{houseDescribe,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, 
       #{roomSum,jdbcType=INTEGER}, #{bedroomSum,jdbcType=INTEGER}, #{bedSum,jdbcType=INTEGER}, 
-      #{toiletSum,jdbcType=INTEGER})
+      #{toiletSum,jdbcType=INTEGER}, #{deposit,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.amy.product.entity.HouseInfo">
     <!--
@@ -166,6 +167,9 @@
       <if test="toiletSum != null">
         toilet_sum,
       </if>
+      <if test="deposit != null">
+        deposit,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="houseInfoId != null">
@@ -242,6 +246,9 @@
       </if>
       <if test="toiletSum != null">
         #{toiletSum,jdbcType=INTEGER},
+      </if>
+      <if test="deposit != null">
+        #{deposit,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -324,6 +331,9 @@
       <if test="toiletSum != null">
         toilet_sum = #{toiletSum,jdbcType=INTEGER},
       </if>
+      <if test="deposit != null">
+        deposit = #{deposit,jdbcType=DECIMAL},
+      </if>
     </set>
     where house_info_id = #{houseInfoId,jdbcType=VARCHAR}
   </update>
@@ -356,7 +366,8 @@
       room_sum = #{roomSum,jdbcType=INTEGER},
       bedroom_sum = #{bedroomSum,jdbcType=INTEGER},
       bed_sum = #{bedSum,jdbcType=INTEGER},
-      toilet_sum = #{toiletSum,jdbcType=INTEGER}
+      toilet_sum = #{toiletSum,jdbcType=INTEGER},
+      deposit = #{deposit,jdbcType=DECIMAL}
     where house_info_id = #{houseInfoId,jdbcType=VARCHAR}
   </update>
 </mapper>

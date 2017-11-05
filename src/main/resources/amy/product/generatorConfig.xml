@@ -51,8 +51,8 @@
             enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
             enableSelectByExample="false" selectByExampleQueryId="false"/> -->
         <!--生成对应表及类名 -->
-        <table tableName="hot_activity" 
-		domainObjectName="HotActivity" 
+        <table tableName="house_info" 
+		domainObjectName="HouseInfo" 
 		enableCountByExample="false" enableUpdateByExample="false"
 		enableDeleteByExample="false" enableSelectByExample="false" 
 		selectByExampleQueryId="false">

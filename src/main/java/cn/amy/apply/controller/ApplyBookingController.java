@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -24,7 +23,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cn.amy.apply.entity.HouseOrder;
 import cn.amy.apply.service.HouseOrderService;
@@ -32,7 +34,6 @@ import cn.amy.product.entity.HouseInfo;
 import cn.amy.product.entity.PriceCalendar;
 import cn.amy.product.service.PriceCalendarService;
 import cn.amy.product.service.ProductService;
-import cn.amy.user.controller.LoginController;
 import cn.amy.util.DateUtil;
 import net.sf.json.JSONObject;
 
@@ -62,11 +63,18 @@ public class ApplyBookingController {
 		 return "apply/apply_book";
 	}
 	
+	
 	//订单详情页面   点击申请预订之后 跳转到订单详情页面
-	@RequestMapping("order.do")
-	public String order_write(){
+	@RequestMapping("order")
+	public String orderWrite(String orderNum,BigDecimal priceSum,BigDecimal deposit,Model model){
+		model.addAttribute("orderNum", orderNum.toString());//订单号
+		model.addAttribute("priceSum", priceSum);//房价
+		model.addAttribute("deposit", deposit);//住房押金
+		model.addAttribute("totalPrice", priceSum.add(deposit));//总共费用
+		//model.addAttribute("orderNum", orderNum.toString());
 		return "apply/order";
 	}
+	
 	
 	//点击申请预订 
 	/**
@@ -82,10 +90,12 @@ public class ApplyBookingController {
 	 * @return
 	 * @throws ParseException
 	 */
-	@RequestMapping("apply_booking.do")
-	public String apply_booking(HttpSession httpSession,Model model,Integer stayNum,String begin_date,
+	@ResponseBody
+	@RequestMapping(value="apply_booking.do",produces="text/html;charset=UTF-8")
+	public String apply_booking(HttpSession httpSession,Integer stayNum,String begin_date,
 			String end_date,String userName,String IDNum,String house_info_id) throws ParseException{
 		String phone = httpSession.getAttribute("userName").toString();
+		JSONObject json = new JSONObject();
 		//生成订单号，显示订单的信息
 		System.out.println("----stay_num---->"+stayNum);
 		System.out.println("----begin_date---->"+begin_date);
@@ -128,7 +138,7 @@ public class ApplyBookingController {
 			.append(random.nextInt(10)).append(random.nextInt(10)).append(random.nextInt(10));
 		houseOrder.setOrderNum(orderNum.toString());//年月日时分秒+时间戳+3位随机数
 		houseOrder.setTotalPrice(priceSum);
-		houseOrder.setDeposit(null);
+		houseOrder.setDeposit(houseinfo !=null?houseinfo.getDeposit():null);
 		houseOrder.setCoupons(null);
 		houseOrder.setHouseDeposit(null);
 		houseOrder.setPayPrice(null);
@@ -155,9 +165,17 @@ public class ApplyBookingController {
 			 */
 			Integer flag = priceCalendarService.updatePriceCalendarByStartEndTime(house_info_id, d1, d2, "N");
 			logger.info("更新日历价格表成功条数：{}", flag);
+			json.put("success", true);
+			json.put("orderNum", orderNum.toString());//订单号
+			json.put("priceSum", priceSum);//还需支付
+			json.put("deposit",houseinfo !=null?houseinfo.getDeposit():0 );//住房押金
+		}else{
+			json.put("success", false);
+			json.put("message", "保存失败");
 		}
-		model.addAttribute("houseinfo", houseinfo);   //房源信息
-		return "apply/order";
+		//model.addAttribute("houseinfo", houseinfo);   //房源信息
+		
+		return json.toString();
 	}
 	
 	//定金支付页面
