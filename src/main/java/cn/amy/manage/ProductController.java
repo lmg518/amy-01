@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -117,23 +118,24 @@ public class ProductController {
 	
 	//转到附件页面
 	@RequestMapping("/house/uploadImages")
-	public String uploadImages(String id) {
+	public String uploadImages(String id,Model model) {
 		System.out.println("---id----"+id);
-		return "manage/attachment";
+		 HouseInfo houseinfo = productService.showHouseInfo(id);
+		 model.addAttribute("houseinfo", houseinfo);   //房源信息
+		 return "manage/attachment";
 	}
 		
     //上传附件
 	@RequestMapping("/house/doSaveObject")
 	@ResponseBody
-	public JsonResult doSaveObject(String title,
+	public JsonResult doSaveObject(String id,
 			MultipartFile file,HttpServletRequest req){
 		
-		System.out.println("title:"+title);
+		System.out.println("id:"+id);  //房源id
 		System.out.println("mfile:"+file);
 		System.out.println("mfile:"+file.getName());
-		String houseInfoId="4";
-		productService.uploadImage(houseInfoId, file, req);
-		//attrachementService.saveObject2(title,athType,belongId,mfile, req);
+		//String houseInfoId="4";
+		productService.uploadImage(id, file, req);
 		return new JsonResult();
 	}
 	

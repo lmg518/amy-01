@@ -122,8 +122,8 @@ public class ProductServiceImpl implements ProductService {
 		String ofileName=mfile.getOriginalFilename();  //获取到文件名
 		System.out.println("原文件名："+ofileName);  //default.html
 		//服务器的路径：D:\WorkSpace_Spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\amy-jpminsu-01\
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		String dateStr=sdf.format(new Date()); //以当前的日期作为保存 文件夹名
+//		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+//		String dateStr=sdf.format(new Date()); //以当前的日期作为保存 文件夹名
 		
 		String newFileName=UUID.randomUUID().toString()+"."
 		+FilenameUtils.getExtension(ofileName);//获取到文件的扩展名 封装的类
@@ -142,10 +142,11 @@ public class ProductServiceImpl implements ProductService {
 			
 			//windos系统
 			//dest=new File("D:/upFiles/"+dateStr+"/"+newFileName);
+			dest=new File("D:/data/images/houses/"+newFileName);
 			
 			//保存到服务器的路经下 
 			//dest=new File(servicePath+dateStr+"/"+newFileName); 
-			dest=new File(servicePath+"images/houses"+"/"+newFileName); 
+			//dest=new File(servicePath+"images/houses"+"/"+newFileName); 
 			
 			File parent=dest.getParentFile();
 			

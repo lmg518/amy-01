@@ -8,11 +8,15 @@ $(document).ready(function(){
 
 
 function doUpload(){
+	var id=$("#houseInfoId").val();
+	console.log("-----id-----"+id);
+	
+	
 	var url="house/doSaveObject.do";
 	$('#uploadFormId').ajaxSubmit({
 		type:'post',
 		url:url,
-		data:{},
+		data:{"id":id},
 		dataType:'json',
 		success:function(result){
 			if(result.state==1){

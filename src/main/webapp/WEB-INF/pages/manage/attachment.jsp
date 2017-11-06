@@ -19,6 +19,7 @@
 
 <!-- 引入js文件 -->
 <script type="text/javascript" src="${basePath}/js/manage/attachment.js"></script>
+<script type="text/javascript" src="${basePath}/js/manage/house_list.js"></script>
 
 
 
@@ -30,11 +31,11 @@
 	   <!-- 页面导航 -->
 	   <div class="page-header">
 			<div class="page-title" style="padding-bottom: 5px">
-				<h3>旅游管理系统</h3>
+				<h3>Amy精品民宿后台管理</h3>
 				<ol class="breadcrumb">
-				  <li>产品管理</li>
+				  <li>房源信息管理</li>
 				  <li>附件管理</li>
-				  <li class="active">产品附件信息管理</li>
+				  <li class="active">房源附件图片管理</li>
 				</ol>
 			</div>
 			<div class="page-stats"></div>
@@ -44,11 +45,16 @@
 			<div class="row page-search">
 			 <div class="col-md-12">
 				<ul class="list-unstyled list-inline">
-					<li><input type="text" name="title" placeholder="附件标题"></li>
+					<li>
+						主页图片<input type="radio" name="type" value="Y" checked />
+						图片集图片<input type="radio" name="type" value="N" />
+					</li>
+					<li><input type="hidden" id="houseInfoId" value=${houseinfo.houseInfoId }></li>
 					<li><input type="file" name="file"></li>
 					<li class='O1'><button type="button" class="btn btn-primary btn-upload" >上传</button></li>
 				</ul>
 			  </div>
+			  
 			</div>
 			<!-- 列表显示内容 标题-->
 			<div class="row col-md-12">
@@ -63,11 +69,11 @@
 						</tr>
 					</thead>
 					
-					<!-- 数据区 -->
+					<!-- 数据区 
 					<tbody id="tbody">
-					
-					
 					</tbody>
+					-->
+					
 				</table>
 			</div>
 		</form>

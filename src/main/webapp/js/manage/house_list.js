@@ -23,7 +23,7 @@ function uploadImages(){
 	var url="house/uploadImages.do?id="+id;
 	//跳转到上传图片页面
 	
-	$('#container').data("athType",1);
+	$('#container').data("house_id",id);
 	$('#container').data("belongId",1);
 	
 	$('#container').load(url);
