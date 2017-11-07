@@ -128,14 +128,15 @@ public class ProductController {
     //上传附件
 	@RequestMapping("/house/doSaveObject")
 	@ResponseBody
-	public JsonResult doSaveObject(String id,
+	public JsonResult doSaveObject(String id,String type,
 			MultipartFile file,HttpServletRequest req){
 		
 		System.out.println("id:"+id);  //房源id
+		System.out.println("type:"+type);  //图片类型  Y 主页图片  N 图片集
 		System.out.println("mfile:"+file);
 		System.out.println("mfile:"+file.getName());
 		//String houseInfoId="4";
-		productService.uploadImage(id, file, req);
+		productService.uploadImage(id, type, file, req);
 		return new JsonResult();
 	}
 	

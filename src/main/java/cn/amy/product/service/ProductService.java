@@ -57,7 +57,7 @@ public interface ProductService {
 	int deleteByPrimaryKey(String houseInfoId);
 	
 	//上传图片
-	void uploadImage(String houseInfoId,MultipartFile mfile,HttpServletRequest req);
+	void uploadImage(String houseInfoId,String type,MultipartFile mfile,HttpServletRequest req);
 	
 	
 }

@@ -49,7 +49,7 @@
 						主页图片<input type="radio" name="type" value="Y" checked />
 						图片集图片<input type="radio" name="type" value="N" />
 					</li>
-					<li><input type="hidden" id="houseInfoId" value=${houseinfo.houseInfoId }></li>
+					<li><input type="text" id="houseInfoId" value=${houseinfo.houseInfoId }></li>
 					<li><input type="file" name="file"></li>
 					<li class='O1'><button type="button" class="btn btn-primary btn-upload" >上传</button></li>
 				</ul>

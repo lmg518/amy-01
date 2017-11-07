@@ -112,7 +112,7 @@ public class ProductServiceImpl implements ProductService {
 	
 	//上传图片
 	@Override
-	public void uploadImage(String houseInfoId, MultipartFile mfile, HttpServletRequest req) {
+	public void uploadImage(String houseInfoId,String type, MultipartFile mfile, HttpServletRequest req) {
 		
      //String servicePath=req.getServletContext().getRealPath("/"); //获取到服务器的项目文件路径
 	String servicePath=req.getSession().getServletContext().getRealPath("/");
@@ -160,10 +160,35 @@ public class ProductServiceImpl implements ProductService {
 			e.printStackTrace();
 			throw new RuntimeException("UpLoad Error!");
 		}
+		//根据图片类型上传
+		if("Y".equals(type)){
+			HouseInfo houseinfo=houseInfoDao.selectByPrimaryKey(houseInfoId);
+			if(houseinfo != null){
+				houseinfo.setImgUrl(dest.getPath());
+				houseInfoDao.updateByPrimaryKeySelective(houseinfo);  //更新到数据库中
+			}else{
+				throw new RuntimeException("UpLoad Error!");
+			}
+		}
 		
-		HouseInfo houseinfo=houseInfoDao.selectByPrimaryKey(houseInfoId);
-		houseinfo.setImgUrl(dest.getPath());
-		houseInfoDao.updateByPrimaryKeySelective(houseinfo);  //更新到数据库中
+		if("N".equals(type)){
+			//创建图片集对象 HouseImage
+			HouseImage hi=new HouseImage();
+			hi.setHouseInfoId(houseInfoId);  //房源id
+			hi.setImageId(UUID.randomUUID().toString());  //图片集记录的id
+			hi.setCreateTime(new Date());     //创建时间
+			hi.setHouseImageUrl(dest.getPath());   //图片的url
+			hi.setHouseImageNo(Math.round(100));    //编号
+			houseImageDao.insertSelective(hi);     //保存到数据库中
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	

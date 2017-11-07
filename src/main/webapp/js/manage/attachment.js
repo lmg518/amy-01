@@ -10,7 +10,9 @@ $(document).ready(function(){
 function doUpload(){
 	var id=$("#houseInfoId").val();
 	console.log("-----id-----"+id);
-	
+	//获取图片上传的类型
+	var type=$('#uploadFormId input[name="type"]:checked').val();
+	console.log(type);
 	
 	var url="house/doSaveObject.do";
 	$('#uploadFormId').ajaxSubmit({
