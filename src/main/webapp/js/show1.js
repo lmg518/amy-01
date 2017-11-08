@@ -1,11 +1,24 @@
 $(document).ready(function(){
-	console.log(1);
 	
 	$('.apply_book_btn').click(toOrder);  //联系房东预订  点击事件
 	$('#houseImg').click(houseImages);  //点击主图片时，隐藏下面的内容，显示图片
 	
 	$('#houseImages').click(show1);  //恢复到详细页面
+	
 })
+//显示退订政策
+function showPolicy(){
+	console.log(1);
+	$('#policyInfo').show();
+	$('#otherInfo').hide();
+}
+//隐藏退订政策
+function hidePolicy(){
+	$('#policyInfo').hide();
+	$('#otherInfo').show();
+}
+
+
 
 function show1(){
 	$('#otherInfo').show();
