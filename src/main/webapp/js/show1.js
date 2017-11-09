@@ -18,6 +18,18 @@ function hidePolicy(){
 	$('#otherInfo').show();
 }
 
+//显示房屋守则
+function showfacilityCode(){
+	console.log(1);
+	$('#facilityCode').show();
+	$('#otherInfo').hide();
+}
+//隐藏房屋守则
+function hidefacilityCode(){
+	$('#facilityCode').hide();
+	$('#otherInfo').show();
+}
+
 
 
 function show1(){

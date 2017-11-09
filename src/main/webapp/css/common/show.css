@@ -139,6 +139,34 @@
     /* border:1px solid red; */
 }
 
+/*退订政策页面*/
+#policyInfo,#facilityCode h1{
+	font-size:40px;
+}
+#policyInfo,#facilityCode h3{
+	font-size:30px;
+}
+#policyInfo,#facilityCode h2{
+	font-size:36px;
+}
+#policyInfo,#facilityCode p{
+	font-size:25px;
+}
+ .removeButton {
+	width:100px;
+	height:100px;
+	margin:0 auto;
+}
+.removeButton img{
+	width:100px;
+	height:100px;
+}
+.importance{
+	color:red;
+}
+
+
+
 /*联系房东预订*/
 .apply_book_btn{
 	height:130px;
