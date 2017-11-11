@@ -3,6 +3,12 @@ package cn.amy.product.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import cn.amy.product.web.DateJsonTypeConvert;
+
 public class PriceCalendar {
     /**
      *
@@ -29,6 +35,7 @@ public class PriceCalendar {
      *
      * @mbggenerated
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dateTime;
 
     /**
@@ -123,6 +130,7 @@ public class PriceCalendar {
      *
      * @mbggenerated
      */
+    @JsonSerialize(using=DateJsonTypeConvert.class)
     public Date getDateTime() {
         return dateTime;
     }
@@ -256,4 +264,12 @@ public class PriceCalendar {
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
+
+	@Override
+	public String toString() {
+		return "PriceCalendar [id=" + id + ", houseInfoId=" + houseInfoId + ", dateTime=" + dateTime + ", price="
+				+ price + ", roomNum=" + roomNum + ", month=" + month + ", status=" + status + ", startTime="
+				+ startTime + ", endTime=" + endTime + "]";
+	}
+	
 }

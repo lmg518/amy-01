@@ -38,7 +38,7 @@
 
 </head>
 <body>
- <%@ include file="menu.jsp" %>
+ <%@ include file="../common/menu.jsp" %>
  
    <!--百度地图--> 
  <div id="baidumap" style="display:none">

@@ -23,7 +23,7 @@
 						
 						
 						<li role="separator" class="divider"></li>
-						<li><a id="load-team-id">团信息</a></li>
+						<li><a id="house-price-id">房源价格管理</a></li>
 						
 						
 						<li role="separator" class="divider"></li>
@@ -65,7 +65,7 @@
 <script type="text/javascript">
 
 
-/* 触发项目按钮连接 */
+/* 触发 添加房源信息 按钮连接 */
 $('#add-house-id').click(function(){
 	var url="house/listUI.do?t="+Math.random(1000);
 	$("#container").load(url);
@@ -73,9 +73,9 @@ $('#add-house-id').click(function(){
 
 
 
-/* 触发团信息连接 */
-$('#load-team-id').click(function(){
-	var url="team/listUI.do?t="+Math.random(1000);
+/* 触发 房源价格管理  连接 */
+$('#house-price-id').click(function(){
+	var url="calendar/listUI.do?t="+Math.random(1000);
 	$("#container").load(url);
 })
 

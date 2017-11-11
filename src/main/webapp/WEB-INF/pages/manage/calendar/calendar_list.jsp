@@ -12,8 +12,8 @@
 <script type="text/javascript" src="${basePath}/js/manage/page.js"></script>
  
 <!-- 引入js文件 -->
-<script type="text/javascript" src="${basePath}/js/manage/house_list.js"></script>
-<script type="text/javascript" src="${basePath}/js/manage/house_edit.js"></script>
+<script type="text/javascript" src="${basePath}/js/manage/calendar/calendar_list.js"></script>
+<script type="text/javascript" src="${basePath}/js/manage/calendar/calendar_edit.js"></script>
 <!-- 表格样式 -->
 <style>
 	#thead,#tbody tr,th{
@@ -43,7 +43,7 @@
 				<ol class="breadcrumb">
 				  <li>房源管理</li>
 				  <li>房源信息管理</li>
-				  <li class="active">添加房源信息</li>
+				  <li class="active">房源价格管理</li>
 				</ol>
 			</div>
 			<div class="page-stats"></div>
@@ -72,18 +72,12 @@
 					<thead id="thead">
 						<tr>
 						    <th>选择</th>
-						    <th>标题</th>
-							<th>城市</th>
-							<th>所在区</th>
-							<th>经度</th>
-							<th>纬度</th>
-							<th>地址</th>
-							<th>房源类型</th>
-							<th>房源介绍</th>
-							<th>房客数量</th>
-							<th>卧室数量</th>
-							<th>床数量</th>
-							<th>卫生间数量</th>
+						    <th>房源ID</th>
+							<th>日期</th>
+							<th>价格</th>
+							<th>房间数量</th>
+							<th>月份</th>
+							<th>状态</th>
 							<th>操作</th>
 						</tr>
 					</thead>
@@ -96,7 +90,7 @@
 				</table>
 				
 				<!-- 引入分页的jsp文件 -->
-				<%@include file="../manage/page.jsp" %>
+				<%@include file="../common/page.jsp" %>
 				
 			</div>
 		</form>

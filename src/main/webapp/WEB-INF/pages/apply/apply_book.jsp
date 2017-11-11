@@ -80,8 +80,8 @@ body{padding:0;margin:0 10px;}
 		
 		<br>
 		<div class="button" style="display:none;">
-			<button class="J_Limit" data-limit="14" style="height:80px;font-size:30px;">限定范围（今天->90天）</button>
-			<button class="J_Limit" data-limit="14" data-date="2017-10-1" style="height:80px;font-size:30px;">指定日历时间（2012年10月1号->60天）</button>
+			<button class="J_Limit" data-limit="31" style="height:80px;font-size:30px;">限定范围（今天->90天）</button>
+			<button class="J_Limit" data-limit="31" data-date="2017-10-1" style="height:80px;font-size:30px;">指定日历时间（2012年10月1号->60天）</button>
         </div>
 	</div>
 	

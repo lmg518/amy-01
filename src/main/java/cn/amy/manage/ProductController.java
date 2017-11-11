@@ -43,19 +43,19 @@ public class ProductController {
 	//后台首页
 	@RequestMapping("admin.do")
 	public String pay_money(){
-		return "manage/admin";
+		return "manage/house/admin";
 	}
 	
 	//转到注册页面
 	@RequestMapping("/house/editUI")
 	public String editUI() {
-		return "manage/house_edit";
+		return "manage/house/house_edit";
 	}
 	
 	//房源信息首页
 	@RequestMapping("/house/listUI")
 	public String listUI() {
-		return "manage/house_list";  //   WEB-INF/pages/team/team_list.jsp
+		return "manage/house/house_list";  //   WEB-INF/pages/team/team_list.jsp
 	}
 	
 	//根据id 查询房源信息
@@ -122,7 +122,7 @@ public class ProductController {
 		System.out.println("---id----"+id);
 		 HouseInfo houseinfo = productService.showHouseInfo(id);
 		 model.addAttribute("houseinfo", houseinfo);   //房源信息
-		 return "manage/attachment";
+		 return "manage/house/attachment";
 	}
 		
     //上传附件
